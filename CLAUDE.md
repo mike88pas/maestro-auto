@@ -4,6 +4,14 @@ Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem n
 
 > **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Rename repo na `velure` w sprint 1.
 
+## 🔴 STATE pre-session (2026-05-19 wieczor)
+
+- Brand decision: **Velure** (final). Atelier 11 archiwalnie.
+- Code: Next.js 15 + Framer Motion. Wszystkie komponenty single-brand. Typecheck clean.
+- Dev server: `npm install --legacy-peer-deps && npm run dev` → `http://localhost:3000`
+- **KNOWN ISSUE P0:** hero foto za slabe per klient feedback — sports-car-night.jpg z Unsplash nie ma efektu WOW dla HNWI. **Priorytet kolejnej sesji.**
+- Pelny snapshot: `docs/SESSION-LOG.md`
+
 ## TLDR
 
 Budujemy **Velure** — brand super-luxury concierge dla aut **300k-3 mln PLN** w Polsce. Model: broker (NIE dealer wlasny, NIE marketplace). Klient ma relacje z salonami + kapital + baze HNWI/UHNWI. MVP 6 mies, budzet 300-800k PLN.

@@ -2,6 +2,8 @@
 
 6 punktow do kickoff call (60 min). Bez tych decyzji nie startujemy sprintu 1.
 
+> **Aktualizacja 2026-05-19 wieczor:** brand decision = Velure (DONE). Nowe pending items dopisane na dole (sekcja "Sprint 1 actions"). Pelny snapshot: `docs/SESSION-LOG.md`.
+
 ## 1. Nazwa brandu — ✅ DONE (Velure, 2026-05-19)
 
 **Decyzja klienta:** **Velure** wybrane po side-by-side preview z Atelier 11. Storyline: *velvet (fr. velours) + allure (urok)*. Slogan primary: *Aksamit. Moc. Dyskrecja.* Slogan EN intl: *Velvet at velocity.*
@@ -120,3 +122,45 @@ Szczegoly: `docs/brand-naming.md`, `docs/brand/velure.md`, `docs/brand/compariso
 | Sprint 1 (branding + repo bootstrap + 2 LOI z salonami) | tydzien 3-4 |
 | Sprint 2 (wireframes + AI Concierge prototype) | tydzien 5-6 |
 | MVP m1 milestone | tydzien 8 |
+
+---
+
+## Sprint 1 actions (po decyzji Velure 2026-05-19)
+
+Dodatkowe pending items odblokowane po finalnej decyzji brandowej.
+
+### A. Hero foto upgrade — 🔴 P0 (klient feedback 2026-05-19)
+
+Aktualne hero placeholder (Unsplash CC0 `sports-car-night.jpg`) jest **za slabe** dla HNWI segment. Brak efektu WOW. Trzy opcje:
+1. **Premium stock** (Adobe Stock, Shutterstock) — Pagani / Bugatti / Aston Martin DBS w dramatic garage setting, ~50-200 PLN/zdj z full commercial license, dostepne natychmiast
+2. **AI-generated** (OpenArt / Replicate Flux Pro 1.1) wg `docs/brand/moodboard-velure.md` — 3 hero prompty gotowe, 30-45 min wygenerowac wybor
+3. **Professional photoshoot** w Polish luxury garage setting — sprint 1+, ale "perfect fit" brand-wise
+
+**Akcja klienta:** wybor opcji (1 / 2 / 3). Rekomendacja PM: (2) AI dla MVP preview, (3) real shoot przed launch produkcji.
+
+### B. Domeny — 🟡 P1
+
+Zakup po decyzji brandu:
+- `velure.pl` (NASK) — priorytet SEO PL, ~50-100 PLN/rok
+- `velure.cars` (Namecheap) — priorytet international, ~80-150 PLN/rok
+- Backup: `velure.eu`, `velure.club`
+
+### C. TM filing — 🟡 P1
+
+- EUIPO eSearch formal w klasie 12 (pojazdy) + 35 (sales/advertising)
+- EU TM application — ~1050 EUR, 4-6 mies
+- UPRP rejestracja PL — ~2000-5000 PLN, 6-9 mies
+
+### D. Social handles — 🔴 P0 (asap przed publicznym ogloszeniem)
+
+- `@velure` na IG, LinkedIn, X, TikTok — rezerwacja ASAP
+- Notka: `@velure.co_` na IG juz zajete (kosmetyki, non-competitive)
+
+### E. Logo finalny — 🟡 P1
+
+Aktualnie: custom SVG sigil V11 w kodzie (`components/ui/sigil.tsx`) — hairline geometric construction. Wystarczajacy dla MVP.
+**Do production:** human designer (agencja premium 50-150k PLN lub freelancer 20-50k PLN). AI prompty w `docs/brand/moodboard-velure.md` jako brief.
+
+### F. Decyzje #2-#7 z gornej sekcji — wciaz otwarte
+
+(domena alternatywy, spolka, partnerzy salonowi, zespol, demo car, agencja brandingowa)
