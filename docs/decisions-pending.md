@@ -2,7 +2,7 @@
 
 6 punktow do kickoff call (60 min). Bez tych decyzji nie startujemy sprintu 1.
 
-> **Aktualizacja 2026-05-19 wieczor:** brand decision = Velure (DONE). Nowe pending items dopisane na dole (sekcja "Sprint 1 actions"). Pelny snapshot: `docs/SESSION-LOG.md`.
+> **Aktualizacja 2026-05-19 noc (sesja 4):** strona LIVE na Vercel → https://velure-bice.vercel.app. Brand decision = Velure (DONE). Hero foto P0 nadal otwarty — user musi wygenerowac w OpenArt (prompts v2 gotowe). Pelny snapshot: `docs/SESSION-LOG.md`.
 
 ## 1. Nazwa brandu — ✅ DONE (Velure, 2026-05-19)
 

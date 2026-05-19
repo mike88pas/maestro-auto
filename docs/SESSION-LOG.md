@@ -4,6 +4,75 @@ Snapshot stanu projektu między sesjami. Update na koniec każdej sesji roboczej
 
 ---
 
+## 2026-05-19 (sesja 4) — Hero WOW redesign + Vercel live deploy
+
+**Trwanie:** ~1.5h.
+**Commit:** `0cea665` feat: hero redesign + Next.js 16 + Vercel live deploy
+
+### Co zostało zrobione
+
+**Hero layout redesign (efekt WOW):**
+- Headline rescale `clamp(56,11vw,160)` → `clamp(48,8.5vw,128)` + `leading-[0.95]` — 3 linie "Aksamit. Moc. Dyskrecja." mieszczą się bez clipowania top
+- Vignette lighter: `var(--bg) 50%` → `30%` centrum, `95%` → `78%` dół — foto oddycha, headline nadal czytelny
+- Container split: headline `max-w-4xl`, sub+CTA `max-w-2xl` — lepszy rytm wizualny
+- Sigil + caption: `pt-24 → pt-32`, tracking `0.2em → 0.24em`, intensity `text-gold/85`
+- Nowe top-right: `MMXXVI · ESTABLISHED` caption `text-ink/40` — łamie pustkę prawego baru
+- CTA primary: usunięta strzałka `→` (gold sweep `::before` daje pełen efekt)
+- Hairline separator: `mt-16 md:mt-20 → mt-20 md:mt-28`
+- Scroll indicator: Aesop-style thin line + dot pulse (bez "Scroll" textu)
+- **Crossfade architecture:** 2 motion.div overlapping, cycle 20s (0-8s primary, 8-10s fade alt in, 10-18s alt, 18-20s fade out)
+
+**OpenArt prompts v2 (5 reżyserii):**
+- `docs/brand/hero-prompts-v2.md` (293 linie) — Maranello Vault / The Reveal / Maker's Bench / Night Driver / Architectural
+- User generuje ręcznie, wybiera 2 → upload do `public/placeholders/velure/`
+- Po uploadzie: swap `HERO_PRIMARY` / `HERO_ALT` w `components/hero.tsx` (2 linie)
+
+**Tech upgrade:**
+- Next.js `15.0.3 → 16.2.6` (Turbopack default, CVE-2025-66478 patch)
+- React `19.0.0-rc → 19.2.6` stable
+- ESLint fix: `components/six-capitals.tsx` — usunięta nieużywana `activeCity` const
+- `.npmrc` z `legacy-peer-deps=true` — clean install na CI/Vercel
+
+**Deployment — Vercel (pivot z Firebase):**
+- Próba Firebase App Hosting → wymaga planu Blaze (Spark free niewystarczy)
+- Klient: **pivot na Vercel** (zgodnie z CLAUDE.md, native Next.js, zero billing setup)
+- Vercel project: `velure` w org `mikes-projects-4ae6588f`
+- GitHub auto-connected `mike88pas/maestro-auto` → push triggers deploy
+- Firebase project `velure-mvp` utworzony (do przyszłego use case auth/db, nie hosting)
+
+### 🟢 LIVE URLs
+
+- **Production alias:** https://velure-bice.vercel.app
+- **Deployment URL:** https://velure-h9nfcmy0t-mikes-projects-4ae6588f.vercel.app
+- **API health:** `/api/health` returns `{status:"ok",brand:"atelier-11 | velure (dual-track)"}`
+- **Inspect:** https://vercel.com/mikes-projects-4ae6588f/velure
+- **Firebase Console:** https://console.firebase.google.com/project/velure-mvp
+
+### 🔴 P0 ISSUES (next session)
+
+1. **Foto hero nadal placeholder** — user musi wygenerować 5 promptow OpenArt, wybrać 2, wgrać do `public/placeholders/velure/`. Po wgraniu: 2-min commit + auto-redeploy.
+2. **Brand fix `/api/health`** — string `"atelier-11 | velure (dual-track)"` desync z single-brand state (Velure). Triv fix.
+3. **Domain `velure.pl`** — zakup + DNS → Vercel custom domain (~10 min raz w sprint 1).
+
+### 🟡 SPRINT 1 NICE-TO-HAVES
+
+- Inventory cards real photos (6 stand-inów do podmiany)
+- OG image (1200×630) — obecnie Vercel używa default screenshot
+- Lighthouse audit (target mobile >90 — nie sprawdzone w tej sesji)
+- Renaming GitHub repo `maestro-auto → velure`
+
+### Pliki kluczowe (delta tej sesji)
+
+- `components/hero.tsx` — pełna przebudowa layout + crossfade
+- `docs/brand/hero-prompts-v2.md` — NEW, 5 OpenArt reżyserii
+- `public/placeholders/velure/README.md` — NEW, TODO lista foto
+- `.npmrc` — NEW, legacy-peer-deps
+- `package.json` + `package-lock.json` — Next.js 16 upgrade
+- `tsconfig.json` — Next.js 16 auto-reconfigure (jsx → react-jsx, .next/dev/types)
+- `.gitignore` — dodane `.vercel`
+
+---
+
 ## 2026-05-19 (sesja 3) — Velure cinematic upgrade + brand cleanup
 
 **Trwanie:** ~6h focused work.

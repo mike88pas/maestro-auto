@@ -4,12 +4,15 @@ Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem n
 
 > **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Rename repo na `velure` w sprint 1.
 
-## 🔴 STATE pre-session (2026-05-19 wieczor)
+## 🟢 STATE pre-session (2026-05-19 noc, sesja 4)
 
-- Brand decision: **Velure** (final). Atelier 11 archiwalnie.
-- Code: Next.js 15 + Framer Motion. Wszystkie komponenty single-brand. Typecheck clean.
-- Dev server: `npm install --legacy-peer-deps && npm run dev` → `http://localhost:3000`
-- **KNOWN ISSUE P0:** hero foto za slabe per klient feedback — sports-car-night.jpg z Unsplash nie ma efektu WOW dla HNWI. **Priorytet kolejnej sesji.**
+- **LIVE:** https://velure-bice.vercel.app (Vercel, auto-deploy z `main`)
+- **Firebase project:** `velure-mvp` istnieje (dla future auth/db, NIE hosting — Vercel hostuje)
+- **Stack:** Next.js 16.2.6 (Turbopack) + React 19.2.6 stable + Framer Motion. Build clean.
+- **Dev server:** `npm install && npm run dev` (`.npmrc` automatycznie ustawia legacy-peer-deps). Build: `npm run build`.
+- **Hero status:** layout cinematic OK, ale **foto nadal placeholder** (`sports-car-night.jpg` Unsplash w obu slotach crossfade)
+- **KNOWN ISSUE P0:** user musi wygenerowac 2 foto z `docs/brand/hero-prompts-v2.md` (OpenArt), wrzucic do `public/placeholders/velure/` jako `hero-primary.webp` + `hero-alt.webp`, dac znac → swap paths w `components/hero.tsx` (HERO_PRIMARY/HERO_ALT consts) = auto-redeploy
+- **KNOWN ISSUE P1:** `/api/health` ma string `"atelier-11 | velure (dual-track)"` — triv fix do single brand
 - Pelny snapshot: `docs/SESSION-LOG.md`
 
 ## TLDR
