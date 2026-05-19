@@ -1,8 +1,28 @@
-# CLAUDE.md — Atelier 11
+# CLAUDE.md — Atelier 11 / Velure (dual-track)
 
 Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem na start sesji.
 
-> **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Brand to **Atelier 11**. Rename repo TBD.
+> **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Rename repo TBD po wyborze brandu.
+
+## Brand exploration (parallel — w toku 2026-05-19)
+
+Aktualnie ewaluujemy **dwie nazwy side-by-side: Velure** vs **Atelier 11**. Klient zobaczy obie w przeglądarce z theme-togglem przed finalna decyzja. Decyzja blokuje TM filing + zakup domen + sprint 1.
+
+**Pliki kluczowe:**
+- `docs/brand/comparison.md` — tabela decyzyjna 12 wymiarow
+- `docs/brand/velure.md` — pelny brand book Velure (zmyslowy luksus)
+- `docs/brand/atelier-11.md` — pelny brand book Atelier 11 (architektoniczny luksus)
+- `docs/brand/slogans.md` — 12 sloganow do wyboru
+- `docs/copy/site-pl.md` — pelny copy deck PL (per brand warianty)
+- `docs/design/ia.md` — wireframe i IA
+- `docs/brand/moodboard-{velure,atelier-11}.md` — OpenArt prompts
+- `docs/brand/assets-brief.md` — kolejnosc generacji asset
+
+**Kod:** Next.js 15 MVP z theme-togglem (`?theme=velure|atelier-11`) zaimplementowany. `npm install` + `npm run dev`.
+
+---
+
+## Brand: Atelier 11 (pierwotna decyzja — wciaz na stole)
 
 ## TLDR
 

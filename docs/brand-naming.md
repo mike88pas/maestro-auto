@@ -1,10 +1,63 @@
 # Naming + domeny + TM research
 
-**Status:** 2026-05-19. **FINALNA NAZWA: Atelier 11** (decyzja klienta).
+**Status:** 2026-05-19 (drugi pass). **DUAL-TRACK: Velure vs Atelier 11** — decyzja klienta po side-by-side preview. Patrz: `docs/brand/comparison.md`.
 
 ---
 
-## ✅ FINAL: Atelier 11 — wynik deep check (2026-05-19)
+## 🔄 Velure — pelny research (2026-05-19, drugi pass)
+
+### Branza automotive — 100% CZYSTE
+Zero hitow "Velure" jako auto-brand w research (EUIPO, WIPO, USPTO). Najblizsze sasiedztwo:
+- Velour Beauty (US cosmetics) — inna klasa, non-competitive
+- Velour Pakistan, India nightwear — fashion, non-competitive
+- VELURE Azerbaijan beauty center — inna klasa, non-competitive
+
+### Cross-industry coexistence (zero konfliktu dla klasy 12+35)
+Brak rejestracji "Velure" w klasach: 12 (pojazdy), 35 (uslugi sprzedazy), 39 (transport), 36 (finanse/ubezpieczenia) wykrytych w research. **Wymaga formalnego EUIPO eSearch przed TM filing** (mandatoryjne).
+
+### Domena
+| TLD | Status | Akcja |
+|-----|--------|-------|
+| `velure.com` | **Zajete** (parked, domain squatter) | NIE walczymy — decyzja klienta 2026-05-19. Koszt 5-50k EUR + 2-6 tyg negocjacji. |
+| `velure.pl` | TBD (NASK check) | **PRIORYTET** — SEO PL, glowny rynek |
+| `velure.cars` | Prawdopodobnie wolne | **PRIORYTET** — international |
+| `velure.eu` | Prawdopodobnie wolne | Backup — ekspansja EU |
+| `velure.auto` | Prawdopodobnie wolne | Backup |
+
+### Social handles
+| Platform | Handle | Status |
+|----------|--------|--------|
+| Instagram | @velure | Prawdopodobnie wolne (do potwierdzenia) |
+| Instagram | @velure.co_ | **Zajete** — kosmetyki/lifestyle (non-competitive) |
+| LinkedIn | /company/velure | Prawdopodobnie wolne |
+| X/Twitter | @velure | Prawdopodobnie wolne |
+| TikTok | @velure | Prawdopodobnie wolne |
+
+### Linguistic
+- Etymology: velvet (fr. velours, lat. villosus) + allure (urok) — naturalny luxury fit
+- Wymowa PL: "ve-LURE" (3 sylaby), zero negatywnych skojarzen
+- Wymowa EN: "vuh-LURE", czysta, nie konfliktuje z "allure" / "velour"
+- **Risk note:** polski czytelnik moze skojarzyc z "velour" (tkanina) — to **obraca sie na korzysc** w luxury context (tactile, sensual)
+
+### SEO baseline
+**Niska konkurencja**, greenfield brand history = lzejsze do dominacji SERP. Aktualne #1 dla "velure" to mieszanka cosmetics/fashion — pole otwarte dla automotive.
+
+### Storyline brandu
+- *Velure* = **velvet** (aksamit, fr. velours) + **allure** (urok)
+- Slogan primary: *Aksamit. Moc. Dyskrecja.* (rekomendowany dla hero)
+- Slogan EN intl: *Velvet at velocity.*
+- Multi-vertical scalable: Velure Yachts, Velure Watches, Velure Real Estate (future)
+
+### TM filing — action plan po decyzji
+1. **EUIPO eSearch formalny** — klasa 12 + 35, mandatory
+2. **WIPO Global Brand Database** — research weryfikacyjny
+3. **UPRP (PL)** — sprawdzic baze polska + rejestracja PL (~2000-5000 PLN, 6-9 mies)
+4. **EU TM** — rejestracja UE (~1050 EUR, 4-6 mies)
+5. **Social handles** — rezerwacja @velure na IG/LinkedIn/X/TikTok ASAP po decyzji
+
+---
+
+## ✅ Atelier 11 — wynik deep check (2026-05-19, pierwszy pass)
 
 ### Branza automotive — 100% CZYSTE
 Zero kolizji nazwa w sektorze aut. Najblizsze ale **nie konfliktujace**:
@@ -177,16 +230,13 @@ Ponizsza sekcja zachowana dla kontekstu decyzji i lessons learned.
 
 ---
 
-## Decyzja PM (po research pivot)
+## Decyzja PM (po drugim passie 2026-05-19)
 
-**Moja top rekomendacja: PRIVATO** > Atelier 11 > Velure
+**Top 2 finalne idace do side-by-side preview: Atelier 11 + Velure**
 
-Dlaczego Privato:
-1. **Single best USP fit** — "prywatny" to istota brandu (dyskrecja HNWI), nazwa robi 50% pracy marketingowej
-2. **Wlosko brzmi** = motoryzacyjne dziedzictwo automatyczne (Italian luxury cars)
-3. **Krotka, slyszalna, latwa do referrala** — klient HNWI mowi do znajomego "kupilem przez Privato" i druga osoba pamieta
-4. **Multi-domain ready** — `privato.cars`, `privato.club`, `privato.eu`
-5. **Risk-balanced** — nie wymyslona (jak Velure), nie zatloczona (jak Atelier 47)
+Klient zobaczy obie nazwy w pelnym brand identity (paleta, typografia, mood, voice) plus dzialajacej stronie z theme-togglem. Decyzja kontekstowa, nie abstrakcyjna.
+
+**Privato** — odlozone na pozniejsza ekspansje (np. tier members-only/VIP) — nadal silne, ale wymaga osobnego positioning. Patrz historyczna sekcja powyzej dla pelnej analizy.
 
 ---
 
