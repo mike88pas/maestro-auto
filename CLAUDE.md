@@ -1,0 +1,118 @@
+# CLAUDE.md — Maestro Auto (robocza nazwa)
+
+Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem na start sesji.
+
+## TLDR
+
+Budujemy **brand premium concierge dla aut 150-500k PLN** w Polsce. Model: broker (NIE dealer wlasny, NIE marketplace). Klient ma relacje z salonami + kapital + baze HNWI. MVP 6 mies, budzet 300-800k PLN.
+
+Plan szczegolowy: `docs/plan.md`. Naming research + status: `docs/brand-naming.md`. Decyzje czekajace na klienta: `docs/decisions-pending.md`.
+
+## Komunikacja
+
+- **Jezyk: polski** (komentarze w kodzie po angielsku jesli technicznie zasadne)
+- Bezpiecznikiem: kazda finalna cena auta wychodzaca z systemu MUSI byc weryfikowalna w bazie/CRM — AI **nigdy** nie haluuje cen
+- Klient HNWI = absolutna dyskrecja, GDPR, brak ujawniania transakcji
+
+## Pozycjonowanie
+
+> "Twoj prywatny doradca premium. AI + eksperci. Najlepsze ceny z salonow w Polsce i Europie."
+
+**Wartosci:** Transparencja · Kuracja · AI-first · Szybkosc · Dyskrecja
+
+## Stack (zatwierdzony)
+
+| Warstwa | Tech |
+|---------|------|
+| Frontend | Next.js 15 + TypeScript + Tailwind + shadcn/ui |
+| Hosting | Vercel (frontend) + Firebase (auth/db) |
+| CMS | Sanity.io lub Strapi self-hosted |
+| AI core | Claude 4.7 Sonnet (advisor) + GPT-4o-mini (routing) + Claude Vision |
+| Vector DB | Qdrant (self-hosted na optimus-server) |
+| Chat | Vercel AI SDK + streaming UI |
+| Email | Resend + React Email |
+| Booking | Cal.com (self-hosted) |
+| Voice agent | Vapi.ai |
+| CRM | Pipedrive lub Attio |
+| Photo AI | Photoroom API + Replicate (SDXL) |
+| Payments | Stripe + Przelewy24 |
+| Analytics | PostHog + Plausible |
+
+**NIE budujemy** wlasnego DMS w MVP — Sanity CMS + Airtable wystarcza.
+
+## Identyfikacja wizualna
+
+- **Paleta:** czern `#0B0B0F` + biel `#FAFAF7` + zlote akcenty `#B08D57` (szampanski metal)
+- **Typografia:** Playfair Display (headlines) + Inter (body)
+- **Mood:** minimalizm, prestiz, NIE video w tle — wysokiej jakosci stillsy + cinemagraphy (subtelne mikro-animacje)
+- **Inspiracja:** HR Owen (https://hrowen.co.uk) — kolorystyka i styl. JamesEdition — model marketplace curated.
+
+## AI Layer (6 modulow do zbudowania)
+
+1. **AI Concierge** (m1-m3) — rozmowa po PL, RAG na live inventory, handoff do brokera
+2. **AI Photo Magic** (m2) — Photoroom + SDXL relighting, studyjne zdjecia z phone shotow
+3. **AI Valuation** (m3) — trade-in wycena ze zdjec + VIN + przebieg (Claude Vision)
+4. **AI Email/Voice Follow-up** (m4) — drip campaign + Vapi.ai voice agent (z disclosure "rozmawia AI")
+5. **AI Content Engine** (m5) — auto-generowanie opisow + posty social (reuse z Optimus content_brands.yaml)
+6. **AI Fraud/Import Check** (m5) — weryfikacja aut z DE/IT (VIN, historia, dokumenty)
+
+## Guardrails AI (NIENEGOCJOWALNE)
+
+- AI **nigdy** nie podaje finalnej ceny — tylko widelki + handoff do brokera
+- AI **nigdy** nie ujawnia marz dealera ani struktury fleet discount
+- AI **nigdy** nie obiecuje terminow dostawy bez potwierdzenia od brokera
+- Voice agent **zawsze** zaczyna od "Rozmawiacie z asystentem AI [BRAND]" + opt-out w 1 zdaniu
+- Klient ma 1-klik dostep do czlowieka w kazdym momencie
+
+## Repo struktura (planowana)
+
+```
+maestro-auto/
+├── app/
+│   ├── (marketing)/         # home, oferty, blog, o-nas
+│   ├── (app)/              # strefa-klienta (auth)
+│   └── api/
+│       ├── ai/             # concierge, valuation, photo-magic
+│       ├── leads/          # CRM integration
+│       └── booking/        # Cal.com webhook
+├── lib/
+│   ├── ai/                 # agents (concierge, valuation, content)
+│   ├── sanity/             # CMS queries
+│   ├── crm/                # Pipedrive/Attio
+│   └── pricing/            # fleet discount logic
+├── components/
+├── docs/                   # plan, decisions, research, naming
+└── content-brands.yaml     # reuse z Optimus
+```
+
+## Reuse z Optimus (~/optimus/)
+
+Ten projekt nie zywie w izolacji — Optimus ma juz infrastrukture do reuse:
+- `content_brands.yaml` — dodac `maestro_auto` jako brand nr 9
+- AI agents pattern z `agents/definitions/*.yaml` — stworzyc `maestro_concierge.yaml`
+- `scripts/input_sanitizer.py` — sanityzacja danych z scrapingu
+- Brain DB schema — tabele `maestro_leads`, `maestro_cars`, `maestro_transactions`
+- Telegram bot — alerty dla brokera "nowy lead premium >300k!"
+
+Pelna lista w `docs/plan.md` sekcja 9.
+
+## Decyzje strategiczne (zatwierdzone 2026-05-18)
+
+- **Model:** Broker/Concierge premium (NIE dealer, NIE marketplace)
+- **Segment:** Premium PL 150-500k PLN (BMW M, AUDI RS, AMG, Porsche, Range Rover, Tesla S/X)
+- **Budzet:** 300-800k PLN, MVP 6 miesiecy
+- **Zasoby klienta:** relacje z salonami + kapital + baza HNWI
+- **Cel m6:** 30-60 transakcji/mies, run-rate 1.5-2 mln PLN/rok
+
+## Decyzje czekajace na klienta
+
+Patrz `docs/decisions-pending.md` — 7 punktow do call'a.
+
+## Standardy kodu (gdy juz piszemy)
+
+- TypeScript strict
+- Lighthouse score >90 mobile MUST (premium = speed)
+- Core Web Vitals zielone
+- GDPR compliance — pseudonimizacja, opt-in everywhere
+- Brak data breach acceptable — audyt zewnetrzny przed public launch
+- Cypress/Playwright e2e na golden path (chat → booking → CRM)
