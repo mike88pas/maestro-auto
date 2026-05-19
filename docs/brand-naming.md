@@ -1,6 +1,6 @@
 # Naming + domeny + TM research
 
-**Status:** 2026-05-19 (drugi pass). **DUAL-TRACK: Velure vs Atelier 11** — decyzja klienta po side-by-side preview. Patrz: `docs/brand/comparison.md`.
+**Status:** 2026-05-19. **✅ FINAL: Velure** (decyzja klienta po side-by-side preview z Atelier 11). Atelier 11 archiwalnie w `docs/brand/atelier-11.md`.
 
 ---
 

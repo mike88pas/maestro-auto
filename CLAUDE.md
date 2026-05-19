@@ -1,32 +1,12 @@
-# CLAUDE.md — Atelier 11 / Velure (dual-track)
+# CLAUDE.md — Velure
 
 Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem na start sesji.
 
-> **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Rename repo TBD po wyborze brandu.
-
-## Brand exploration (parallel — w toku 2026-05-19)
-
-Aktualnie ewaluujemy **dwie nazwy side-by-side: Velure** vs **Atelier 11**. Klient zobaczy obie w przeglądarce z theme-togglem przed finalna decyzja. Decyzja blokuje TM filing + zakup domen + sprint 1.
-
-**Pliki kluczowe:**
-- `docs/brand/comparison.md` — tabela decyzyjna 12 wymiarow
-- `docs/brand/velure.md` — pelny brand book Velure (zmyslowy luksus)
-- `docs/brand/atelier-11.md` — pelny brand book Atelier 11 (architektoniczny luksus)
-- `docs/brand/slogans.md` — 12 sloganow do wyboru
-- `docs/copy/site-pl.md` — pelny copy deck PL (per brand warianty)
-- `docs/design/ia.md` — wireframe i IA
-- `docs/brand/moodboard-{velure,atelier-11}.md` — OpenArt prompts
-- `docs/brand/assets-brief.md` — kolejnosc generacji asset
-
-**Kod:** Next.js 15 MVP z theme-togglem (`?theme=velure|atelier-11`) zaimplementowany. `npm install` + `npm run dev`.
-
----
-
-## Brand: Atelier 11 (pierwotna decyzja — wciaz na stole)
+> **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Rename repo na `velure` w sprint 1.
 
 ## TLDR
 
-Budujemy **Atelier 11** — brand super-luxury concierge dla aut **300k-3 mln PLN** w Polsce. Model: broker (NIE dealer wlasny, NIE marketplace). Klient ma relacje z salonami + kapital + baze HNWI/UHNWI. MVP 6 mies, budzet 300-800k PLN.
+Budujemy **Velure** — brand super-luxury concierge dla aut **300k-3 mln PLN** w Polsce. Model: broker (NIE dealer wlasny, NIE marketplace). Klient ma relacje z salonami + kapital + baze HNWI/UHNWI. MVP 6 mies, budzet 300-800k PLN.
 
 **Segment marki:** Ferrari, Lamborghini, McLaren, Bentley, Aston Martin, Rolls-Royce, Maserati, Porsche flagship (911 Turbo+/Taycan Turbo), AMG flagship (S/G-Class), Range Rover SV, BMW M flagship, Audi RS flagship, Tesla Plaid.
 
@@ -34,22 +14,31 @@ Budujemy **Atelier 11** — brand super-luxury concierge dla aut **300k-3 mln PL
 
 Plan szczegolowy: `docs/plan.md`. Naming research + status: `docs/brand-naming.md`. Decyzje czekajace na klienta: `docs/decisions-pending.md`.
 
-## Brand: Atelier 11
+## Brand: Velure
 
-**Decyzja klienta:** 2026-05-19. Finalna nazwa po deep TM/domain check.
+**Decyzja klienta:** 2026-05-19 — po side-by-side preview z Atelier 11.
 
-**Storyline:** *"Atelier" — krawiectwo na miarę. "11" — sygnatura, nasze 11 punktow weryfikacji kazdego auta + 11 marek partnerskich.*
+**Storyline:** *velvet (fr. velours, aksamit) + allure (urok). Zmyslowy luksus — noc, skora, miekkie refleksy. Klient nie potrzebuje krzyczec posiadaniem — kupuje auto jak garnitur od Brioni: wie, ze tylko on i krawiec znaja cene.*
 
-**Cross-industry coexistence** (nie konflikt):
-- Atelier 11 Architecture (USA, klasa 42)
-- Atelier 11 (UK transmedia studio, klasa 41)
-- W klasie 12 (pojazdy) i 35 (sales) — pole wolne
+**Slogan primary:** *Aksamit. Moc. Dyskrecja.*
+**Slogan EN intl:** *Velvet at velocity.*
+**USP narracyjne:** *Tam, gdzie predkosc ma fakture.*
 
-**Domena:**
-- `atelier11.com` zajete (US architecture firm) — NIE bedziemy walczyc
-- **Priorytet:** `atelier11.pl` (SEO PL) + `atelier11.cars` (international) lub `atelier11.eu`
-- Do potwierdzenia: Namecheap/GoDaddy check po decyzji klienta
-- Social handles: `@atelier11` / `@atelier11.cars` na IG/LinkedIn/X — do rezerwacji ASAP
+**TM research (2026-05-19):** branza automotive 100% czyste, zero kolizji w klasach 12/35 EUIPO/WIPO. Wymaga formalnego EUIPO eSearch przed filing.
+
+**Domena (priorytet sprint 1):**
+- `velure.com` zajete (parked squatter) — NIE walczymy (per decyzja klienta)
+- **Priorytet:** `velure.pl` (SEO PL) + `velure.cars` (international)
+- Backup: `velure.eu`
+- Social handles: `@velure` na IG/LinkedIn/X/TikTok — rezerwacja ASAP
+
+**Identyfikacja wizualna Velure:**
+- Paleta: noir `#0A0809` + ivory `#F2EBDD` + matte champagne gold `#C9A961` + deep gold `#6B4423` + accent `#1A0F0A`
+- Typografia: Cormorant Garamond 300 (display) + Inter (body)
+- Mood: noc, skora, miekkie refleksy, slow motion. Foto warm grain, low-key, leather close-ups
+- Sigil V11: custom SVG hairline mark — V interlocked z 11 (11 punktow weryfikacji)
+
+**Atelier 11** odpadlo — archiwalnie w `docs/brand/atelier-11.md` jako historia decyzji.
 
 ## Komunikacja
 
@@ -85,10 +74,10 @@ Plan szczegolowy: `docs/plan.md`. Naming research + status: `docs/brand-naming.m
 
 ## Identyfikacja wizualna
 
-- **Paleta:** czern `#0B0B0F` + biel `#FAFAF7` + zlote akcenty `#B08D57` (szampanski metal)
-- **Typografia:** Playfair Display (headlines) + Inter (body)
-- **Mood:** minimalizm, prestiz, NIE video w tle — wysokiej jakosci stillsy + cinemagraphy (subtelne mikro-animacje)
-- **Inspiracja:** HR Owen (https://hrowen.co.uk) — kolorystyka i styl. JamesEdition — model marketplace curated.
+- **Paleta:** noir `#0A0809` + ivory `#F2EBDD` + matte champagne gold `#C9A961` + deep gold `#6B4423` + accent `#1A0F0A`
+- **Typografia:** Cormorant Garamond 300 (display) + Inter (body) — SIL OFL, commercial safe
+- **Mood:** noc, skora, miekkie refleksy, slow motion. Warm grain w foto, ken-burns na hero. Bez video w tle.
+- **Inspiracja:** JamesEdition (full-bleed immersion), Romans International (curated cards). Pagani official photography (low-key dramatic).
 
 ## AI Layer (6 modulow do zbudowania)
 

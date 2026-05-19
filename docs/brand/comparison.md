@@ -1,6 +1,14 @@
 # Velure vs Atelier 11 — comparison
 
-**Cel:** jeden artefakt decyzyjny dla klienta. Klient po przejściu tabeli + preview hero w przeglądarce wybiera **jeden brand**. Decyzja odblokowuje TM filing + zakup domen + sprint 1.
+## ✅ DECYZJA: Velure (2026-05-19)
+
+Klient wybral **Velure** po side-by-side preview. Argumenty decydujace: silniejsza emocja (zmyslowy luksus vs architektoniczny), greenfield TM, multi-vertical scalability (Velure Yachts/Watches/Real Estate w przyszlosci), mocniejszy storyline marketingowy (*Aksamit. Moc. Dyskrecja.*).
+
+Ten dokument zostal zachowany jako **artefakt procesu decyzyjnego** — pokazuje analiza, na podstawie ktorej zostala podjeta decyzja. Atelier 11 archiwalnie w `docs/brand/atelier-11.md`.
+
+---
+
+**Cel (historyczny):** jeden artefakt decyzyjny dla klienta. Klient po przejściu tabeli + preview hero w przeglądarce wybiera **jeden brand**. Decyzja odblokowuje TM filing + zakup domen + sprint 1.
 
 **Jak czytać:** ostatnia kolumna *PM recommendation per dimension* mówi, który brand jest lepszy w danym wymiarze. Mogą się różnić — decyzja nie jest "lepsze 12/12", tylko "co dla nas ważniejsze".
 

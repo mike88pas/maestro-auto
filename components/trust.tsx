@@ -1,32 +1,36 @@
 import { trust } from "@/lib/copy";
-import type { Theme } from "@/lib/theme";
+import { Reveal, RevealStagger, RevealItem } from "./ui/reveal";
+import { GoldLine } from "./ui/gold-line";
 
-export function Trust({ theme }: { theme: Theme }) {
-  const copy = trust[theme];
-
+export function Trust() {
   return (
-    <section className="py-24 md:py-32 border-t border-gold/15">
+    <section className="py-28 md:py-36 border-t border-gold/15">
       <div className="container-x">
-        <div className="caption section-number mb-4" data-num="08">
-          Zaufanie
-        </div>
-        <h2 className="display text-[clamp(36px,5vw,56px)] max-w-3xl mb-16">
-          {copy.headline}
-        </h2>
+        <Reveal>
+          <div className="caption mb-3 text-gold">— 09 · Zaufanie</div>
+          <h2 className="display text-[clamp(40px,6vw,68px)] max-w-3xl leading-tight">
+            {trust.headline}
+          </h2>
+          <GoldLine className="w-16 mt-8" />
+        </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8 border-t border-gold/30 pt-12">
-          {copy.stats.map((s, i) => (
-            <div key={i} className="space-y-3">
-              <div className="display text-[clamp(48px,6vw,80px)] text-gold tabular leading-none">
+        <RevealStagger
+          delayChildren={0.2}
+          staggerChildren={0.15}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-y-14 gap-x-8 border-t border-gold/30 pt-14"
+        >
+          {trust.stats.map((s, i) => (
+            <RevealItem key={i} className="space-y-4">
+              <div className="display text-[clamp(56px,8vw,108px)] text-gold tabular leading-none">
                 {s.number}
               </div>
-              <div className="hairline w-8" />
-              <div className="text-sm text-muted leading-snug max-w-[180px]">
+              <div className="hairline w-10" />
+              <div className="text-sm text-muted leading-snug max-w-[200px]">
                 {s.label}
               </div>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   );

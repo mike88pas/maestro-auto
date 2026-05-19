@@ -1,10 +1,10 @@
-import { readTheme } from "@/lib/theme";
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { Manifest } from "@/components/manifest";
 import { InventoryTeaser } from "@/components/inventory-teaser";
 import { ValueProps } from "@/components/value-props";
 import { HowItWorks } from "@/components/how-it-works";
+import { SixCapitals } from "@/components/six-capitals";
 import { ConciergeIntro } from "@/components/concierge-intro";
 import { Services } from "@/components/services";
 import { Trust } from "@/components/trust";
@@ -12,25 +12,24 @@ import { ContactCTA } from "@/components/contact-cta";
 import { Footer } from "@/components/footer";
 import { StickyPhone } from "@/components/sticky-phone";
 
-export default async function HomePage() {
-  const theme = await readTheme();
-
+export default function HomePage() {
   return (
     <>
-      <Nav theme={theme} />
+      <Nav />
       <main className="pb-16 md:pb-0">
-        <Hero theme={theme} />
-        <Manifest theme={theme} />
+        <Hero />
+        <Manifest />
         <InventoryTeaser />
-        <ValueProps theme={theme} />
+        <ValueProps />
         <HowItWorks />
-        <ConciergeIntro theme={theme} />
+        <SixCapitals />
+        <ConciergeIntro />
         <Services />
-        <Trust theme={theme} />
-        <ContactCTA theme={theme} />
+        <Trust />
+        <ContactCTA />
       </main>
-      <Footer theme={theme} />
-      <StickyPhone theme={theme} />
+      <Footer />
+      <StickyPhone />
     </>
   );
 }

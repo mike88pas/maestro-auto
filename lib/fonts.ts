@@ -1,12 +1,11 @@
-import { Cormorant_Garamond, Playfair_Display, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 
 /**
- * Font pairing strategy:
- *  - Velure: Cormorant Garamond 300 (display) + Inter (body) — sensual, editorial
- *  - Atelier 11: Playfair Display 400 (display) + Inter (body) — architectural, structured
+ * Velure typography:
+ *  - Cormorant Garamond 300 (display) — sensual, editorial
+ *  - Inter (body) — modern, neutral, perfect for HNWI readability
  *
- * Both pairs loaded once; theme decides which display var is active in CSS.
- * All fonts are SIL OFL licensed — commercial safe.
+ * Both fonts are SIL OFL licensed — commercial safe.
  */
 
 export const cormorant = Cormorant_Garamond({
@@ -14,13 +13,6 @@ export const cormorant = Cormorant_Garamond({
   weight: ["300", "400"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
-  display: "swap",
-});
-
-export const playfair = Playfair_Display({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
-  variable: "--font-playfair",
   display: "swap",
 });
 

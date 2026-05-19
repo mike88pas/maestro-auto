@@ -1,39 +1,41 @@
 import Link from "next/link";
 import { footer as footerCopy, contact } from "@/lib/copy";
-import type { Theme } from "@/lib/theme";
+import { BRAND } from "@/lib/theme";
+import { Sigil } from "./ui/sigil";
 
-export function Footer({ theme }: { theme: Theme }) {
-  const brand = theme === "velure" ? "VELURE" : "ATELIER 11";
-  const tagline = footerCopy[theme].tagline;
-  const c = contact[theme];
-
+export function Footer() {
   return (
-    <footer className="border-t border-gold/30 pt-20 pb-12 bg-bg">
+    <footer className="border-t border-gold/30 pt-24 pb-12 bg-bg">
       <div className="container-x">
-        <div className="grid md:grid-cols-12 gap-12 mb-16">
+        <div className="grid md:grid-cols-12 gap-12 mb-20">
           {/* Brand block */}
-          <div className="md:col-span-4 space-y-4">
-            <div className="display text-2xl tracking-[0.3em]">{brand}</div>
+          <div className="md:col-span-4 space-y-5">
+            <div className="flex items-center gap-3">
+              <Sigil className="h-8 w-8 text-gold" />
+              <span className="display text-xl tracking-[0.4em]">
+                {BRAND.wordmark}
+              </span>
+            </div>
             <p className="text-sm text-muted max-w-xs leading-relaxed">
-              Prywatny broker aut super-luxury. Polska i świat.
+              Prywatny broker aut super-luxury.<br />
+              Polska, Włochy, Niemcy, Szwajcaria, Dubaj, Japonia.
             </p>
-            <div className="pt-6 space-y-2">
+            <div className="pt-4 space-y-2">
               <a
-                href={`tel:${c.phone.replace(/\s/g, "")}`}
+                href={`tel:${contact.phone.replace(/\s/g, "")}`}
                 className="block text-sm text-ink hover:text-gold transition-colors tabular"
               >
-                {c.phone}
+                {contact.phone}
               </a>
               <a
-                href={`mailto:${c.email}`}
+                href={`mailto:${contact.email}`}
                 className="block text-sm text-muted hover:text-gold transition-colors"
               >
-                {c.email}
+                {contact.email}
               </a>
             </div>
           </div>
 
-          {/* Link columns */}
           <FooterCol
             title="Kolekcja"
             links={[
@@ -75,13 +77,12 @@ export function Footer({ theme }: { theme: Theme }) {
           />
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t border-muted/20 flex flex-wrap items-center justify-between gap-4">
           <p className="caption text-muted">
-            © 2026 {brand} · Wszystkie prawa zastrzeżone · NIP PL XXXXXXXXXX
+            © 2026 {BRAND.wordmark} · Wszystkie prawa zastrzeżone · NIP PL XXXXXXXXXX
           </p>
-          <p className={theme === "velure" ? "display italic text-gold text-base" : "caption text-gold"}>
-            {tagline}
+          <p className="display italic text-gold text-lg md:text-xl">
+            {footerCopy.tagline}
           </p>
         </div>
       </div>
@@ -99,12 +100,12 @@ function FooterCol({
   return (
     <div className="md:col-span-2 space-y-4">
       <div className="caption text-gold">{title}</div>
-      <ul className="space-y-2">
+      <ul className="space-y-2.5">
         {links.map((l) => (
           <li key={l.href}>
             <Link
               href={l.href}
-              className="text-sm text-muted hover:text-ink transition-colors"
+              className="text-sm text-muted hover:text-ink transition-colors duration-300"
             >
               {l.label}
             </Link>

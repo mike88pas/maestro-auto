@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 /* =====================================================================
-   THEME TOKENS — Velure (default) vs Atelier 11
-   Switch via <html data-theme="velure"> | <html data-theme="atelier-11">
+   VELURE — brand tokens
+   Single-brand site, dark luxury. Applied via [data-theme="velure"] on <html>
    ===================================================================== */
 
 :root,
@@ -26,24 +26,6 @@
   --radius: 0px;
 }
 
-:root[data-theme="atelier-11"] {
-  --bg: #0B0B0F;
-  --ink: #FAFAF7;
-  --muted: #6B6B70;
-  --gold: #B08D57;
-  --gold-deep: #8A6B3D;
-  --accent: #1A1A1F;
-
-  --font-display: var(--font-playfair);
-  --font-body: var(--font-inter);
-
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --dur-fast: 200ms;
-  --dur-mid: 400ms;
-  --dur-slow: 800ms;
-  --radius: 2px;
-}
-
 /* =====================================================================
    Base
    ===================================================================== */
@@ -62,6 +44,22 @@ body {
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 ::selection {
@@ -79,6 +77,17 @@ button {
   cursor: pointer;
 }
 
+/* Smooth scrollbar — dark gold accent */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--gold) 30%, var(--bg));
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--gold) 50%, var(--bg));
+}
+
 /* =====================================================================
    Brand primitives
    ===================================================================== */
@@ -90,23 +99,13 @@ button {
   line-height: 0.95;
 }
 
-:root[data-theme="atelier-11"] .display {
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.0;
-}
-
 .caption {
   font-family: var(--font-body);
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 500;
-}
-
-:root[data-theme="atelier-11"] .caption {
-  letter-spacing: 0.12em;
 }
 
 .tabular {
@@ -127,99 +126,84 @@ button {
 }
 
 /* =====================================================================
-   Buttons — brand-aware
+   Buttons
    ===================================================================== */
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 14px 28px;
-  border: 1px solid var(--ink);
+  gap: 0.65rem;
+  padding: 15px 32px;
+  border: 1px solid var(--gold);
   background: transparent;
-  color: var(--ink);
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
   border-radius: var(--radius);
-  transition: all var(--dur-fast) var(--ease);
+  transition: all var(--dur-mid) var(--ease);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 }
 
-:root[data-theme="velure"] .btn-primary:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-:root[data-theme="atelier-11"] .btn-primary:hover {
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: var(--gold);
-  border-color: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-mid) var(--ease);
+  z-index: -1;
+}
+
+.btn-primary:hover {
   color: var(--bg);
+}
+
+.btn-primary:hover::before {
+  transform: scaleX(1);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 14px 0;
+  padding: 15px 0;
   color: var(--muted);
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
   transition: color var(--dur-fast) var(--ease);
   background: none;
   border: none;
+  position: relative;
 }
 
 .btn-secondary:hover {
-  color: var(--ink);
-}
-
-.btn-secondary::before {
-  content: "·";
   color: var(--gold);
-  margin-right: 0.5rem;
-  font-size: 1.4em;
-  line-height: 1;
+}
+
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: var(--gold);
+  transition: width var(--dur-mid) var(--ease);
+}
+
+.btn-secondary:hover::after {
+  width: 100%;
 }
 
 /* =====================================================================
-   Cards
-   ===================================================================== */
-
-.card {
-  background: transparent;
-  border: 1px solid transparent;
-  transition: all var(--dur-mid) var(--ease);
-  border-radius: var(--radius);
-}
-
-:root[data-theme="velure"] .card:hover {
-  background: var(--accent);
-}
-
-:root[data-theme="atelier-11"] .card {
-  border-color: color-mix(in srgb, var(--muted) 20%, transparent);
-}
-
-:root[data-theme="atelier-11"] .card:hover {
-  border-color: var(--gold);
-}
-
-.card-image {
-  transition: transform var(--dur-slow) var(--ease);
-  overflow: hidden;
-}
-
-:root[data-theme="velure"] .card:hover .card-image img {
-  transform: scale(1.02) translateY(4px);
-}
-
-/* =====================================================================
-   Form fields
+   Form fields — luxury underline style
    ===================================================================== */
 
 .field {
@@ -245,79 +229,6 @@ button {
   border-bottom-color: var(--gold);
 }
 
-:root[data-theme="atelier-11"] .field {
-  border: 1px solid var(--muted);
-  padding: 12px 16px;
-}
-
-:root[data-theme="atelier-11"] .field:focus {
-  border-color: var(--gold);
-  border-width: 2px;
-  padding: 11px 15px;
-}
-
-/* =====================================================================
-   Section numbering (Atelier 11 only)
-   ===================================================================== */
-
-:root[data-theme="atelier-11"] .section-number::before {
-  content: "— " attr(data-num) " —";
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  font-weight: 500;
-}
-
-:root[data-theme="velure"] .section-number::before {
-  content: none;
-}
-
-/* =====================================================================
-   Sigil "11/11" badge
-   ===================================================================== */
-
-.badge-11 {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 500;
-  border-radius: var(--radius);
-}
-
-.badge-11::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: var(--gold);
-  border-radius: 50%;
-}
-
-/* =====================================================================
-   Reveal animation — section entrance
-   ===================================================================== */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity var(--dur-slow) var(--ease),
-    transform var(--dur-slow) var(--ease);
-}
-
-.reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* =====================================================================
    Mobile sticky telephone bar
    ===================================================================== */
@@ -333,10 +244,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  letter-spacing: 0.06em;
+  font-size: 13px;
+  letter-spacing: 0.12em;
   z-index: 50;
-  color: var(--ink);
+  color: var(--gold);
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -356,4 +267,21 @@ button {
   margin: 0 auto;
   padding-left: clamp(1.25rem, 4vw, 3rem);
   padding-right: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* =====================================================================
+   Six Capitals — pin animations (CSS fallback for SVG <animate>)
+   ===================================================================== */
+
+@keyframes pin-pulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.6); }
+}
+
+/* =====================================================================
+   Image utilities — Velure photo treatment
+   ===================================================================== */
+
+.photo-warm {
+  filter: contrast(1.05) saturate(0.92) brightness(0.96);
 }

@@ -2,28 +2,20 @@
 
 6 punktow do kickoff call (60 min). Bez tych decyzji nie startujemy sprintu 1.
 
-## 1. Nazwa brandu — 🔄 PENDING (Velure vs Atelier 11, dual-track)
+## 1. Nazwa brandu — ✅ DONE (Velure, 2026-05-19)
 
-**Status 2026-05-19 (drugi pass):** klient pivotuje koncepcyjnie z Atelier 11 na Velure, ale chce zobaczyc obie nazwy side-by-side w pelnym brand identity + dzialajacej stronie. Decyzja po preview.
+**Decyzja klienta:** **Velure** wybrane po side-by-side preview z Atelier 11. Storyline: *velvet (fr. velours) + allure (urok)*. Slogan primary: *Aksamit. Moc. Dyskrecja.* Slogan EN intl: *Velvet at velocity.*
 
-**Co istnieje:**
-- `docs/brand/comparison.md` — tabela decyzyjna 12 wymiarow
-- `docs/brand/velure.md` — brand book Velure (zmyslowy luksus, paleta noir+warm gold #C9A961, Cormorant Garamond)
-- `docs/brand/atelier-11.md` — brand book Atelier 11 (architektoniczny luksus, paleta ink+champagne #B08D57, Playfair Display)
-- `docs/brand/slogans.md` — 12 sloganow do wyboru (4 katy x 3)
-- `docs/copy/site-pl.md` — pelny copy deck PL z wariantami per brand
-- Next.js MVP z theme-togglem zaimplementowany — `npm run dev` i preview side-by-side w przegladarce
+**Atelier 11 archiwalnie** w `docs/brand/atelier-11.md` jako historia procesu decyzyjnego.
 
-**Akcja klienta:**
-1. Przejdz `docs/brand/comparison.md`
-2. Otworz `http://localhost:3000`, toggluj `?theme=velure` ↔ `?theme=atelier-11`
-3. Przejdz 12 sloganow, zaznacz top 3
-4. Decyzja: **Velure** lub **Atelier 11**
-5. Decyzja zapisana w tym pliku oraz `docs/brand-naming.md` jako "FINAL".
+**Co odblokowuje (sprint 1):**
+- Zakup domen: **velure.pl** (priorytet, SEO PL) + **velure.cars** (international)
+- TM filing: EUIPO klasa 12 (pojazdy) + 35 (sales/advertising), UPRP rejestracja PL
+- Social handles: @velure na IG, LinkedIn, X, TikTok — rezerwacja ASAP przed publicznym ogloszeniem
+- Real-photo shoot 6 aut w Polish luxury garage setting
+- Sprint 1: salon LOI x5, kickoff zespolu (2-3 brokerzy), demo car decyzja
 
-**Co to odblokowuje:** TM filing (EUIPO klasa 12+35), zakup domen (velure.pl+velure.cars LUB atelier11.pl+atelier11.cars), social handles, rozpoczecie sprintu 1 (real-photo shoots, salon LOI, kickoff zespolu).
-
-Szczegoly: `docs/brand-naming.md` + `docs/brand/`.
+Szczegoly: `docs/brand-naming.md`, `docs/brand/velure.md`, `docs/brand/comparison.md`.
 
 ---
 

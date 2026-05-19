@@ -1,15 +1,13 @@
 import { contact } from "@/lib/copy";
-import type { Theme } from "@/lib/theme";
 
-export function StickyPhone({ theme }: { theme: Theme }) {
-  const c = contact[theme];
+export function StickyPhone() {
   return (
     <a
-      href={`tel:${c.phone.replace(/\s/g, "")}`}
+      href={`tel:${contact.phone.replace(/\s/g, "")}`}
       className="sticky-phone"
-      aria-label={`Zadzwoń ${c.phone}`}
+      aria-label={`Zadzwoń ${contact.phone}`}
     >
-      Zadzwoń · {c.phone}
+      <span>Zadzwoń · {contact.phone}</span>
     </a>
   );
 }

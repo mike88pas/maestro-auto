@@ -1,56 +1,56 @@
 import Link from "next/link";
 import { nav, contact } from "@/lib/copy";
-import type { Theme } from "@/lib/theme";
+import { BRAND } from "@/lib/theme";
+import { Sigil } from "./ui/sigil";
 
-export function Nav({ theme }: { theme: Theme }) {
-  const phone = contact[theme].phone;
-  const brandLabel = theme === "velure" ? "VELURE" : "ATELIER 11";
+export function Nav() {
+  const phone = contact.phone;
 
   return (
-    <header className="sticky top-0 z-40 bg-bg/95 backdrop-blur-sm border-b border-gold/20">
+    <header className="fixed top-0 left-0 right-0 z-40 bg-bg/70 backdrop-blur-md border-b border-gold/15">
       <div className="container-x flex items-center justify-between h-20">
-        {/* Wordmark */}
+        {/* Wordmark + sigil */}
         <Link
           href="/"
-          className="display text-2xl tracking-[0.3em] hover:text-gold transition-colors"
-          aria-label={`${brandLabel} — strona główna`}
+          className="group flex items-center gap-3 hover:text-gold transition-colors"
+          aria-label={`${BRAND.wordmark} — strona główna`}
         >
-          {brandLabel}
+          <Sigil className="h-6 w-6 text-gold transition-transform group-hover:rotate-3" />
+          <span className="display text-xl md:text-2xl tracking-[0.4em]">
+            {BRAND.wordmark}
+          </span>
         </Link>
 
-        {/* Central nav (hidden on mobile) */}
-        <nav className="hidden md:flex items-center gap-10">
+        {/* Central nav */}
+        <nav className="hidden lg:flex items-center gap-10">
           {nav.links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[12px] tracking-wider-3 uppercase text-muted hover:text-ink transition-colors"
+              className="relative text-[11px] tracking-wider-3 uppercase text-muted hover:text-ink transition-colors group"
             >
               {link.label}
+              <span className="absolute -bottom-1 left-0 right-0 h-px bg-gold scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
             </Link>
           ))}
         </nav>
 
-        {/* Right: phone + language */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* Right: phone + lang */}
+        <div className="hidden md:flex items-center gap-5">
           <a
             href={`tel:${phone.replace(/\s/g, "")}`}
             className="text-[12px] tracking-wider-2 text-ink hover:text-gold transition-colors tabular"
           >
             {phone}
           </a>
-          <span className="text-[10px] tracking-wider-3 text-muted">PL · EN</span>
+          <span className="caption text-muted/60">PL · EN</span>
         </div>
 
-        {/* Mobile: hamburger placeholder */}
-        <button
-          className="md:hidden text-ink p-2"
-          aria-label="Menu"
-        >
-          <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
-            <line x1="0" y1="1" x2="20" y2="1" stroke="currentColor" strokeWidth="1" />
-            <line x1="0" y1="7" x2="20" y2="7" stroke="currentColor" strokeWidth="1" />
-            <line x1="0" y1="13" x2="20" y2="13" stroke="currentColor" strokeWidth="1" />
+        <button className="md:hidden text-ink p-2" aria-label="Menu">
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
+            <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" />
+            <line x1="0" y1="7" x2="22" y2="7" stroke="currentColor" />
+            <line x1="0" y1="13" x2="22" y2="13" stroke="currentColor" />
           </svg>
         </button>
       </div>

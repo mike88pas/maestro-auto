@@ -1,17 +1,18 @@
-# Atelier 11 / Velure — brand decision pending
+# Velure — concierge super-luxury PL
 
-> **Concierge super-luxury 300k-3M PLN. AI + eksperci. Polska, Wlochy, Niemcy, Szwajcaria, Dubaj, Japonia.**
+> **Aksamit. Moc. Dyskrecja.**
+>
+> Prywatny broker aut super-luxury (300k-3M PLN). Polska, Wlochy, Niemcy, Szwajcaria, Dubaj, Japonia.
 
 Brand concierge dla segmentu super-luxury **300k-3 mln PLN**. AI-first. MVP w realizacji (2026 H2).
 
-**Aktualnie:** ewaluujemy dwie nazwy side-by-side — **Velure** (zmyslowy luksus) vs **Atelier 11** (architektoniczny luksus). Decyzja po preview. Patrz: [`docs/brand/comparison.md`](docs/brand/comparison.md).
+**Brand finalized 2026-05-19:** Velure (etymologia: velvet + allure). Atelier 11 archiwalnie w [`docs/brand/atelier-11.md`](docs/brand/atelier-11.md) jako historia procesu.
 
 **Quick start (dev preview):**
 ```bash
-npm install
+npm install --legacy-peer-deps
 npm run dev
 # otworz http://localhost:3000
-# toggle theme przez przycisk w prawym gornym rogu
 ```
 
 **Marki:** Ferrari, Lamborghini, McLaren, Bentley, Aston Martin, Rolls-Royce, Maserati, Porsche flagship, AMG flagship, Range Rover SV, BMW M flagship.
@@ -27,7 +28,7 @@ npm run dev
 | Brief klienta | DONE | 2026-05-18 |
 | Research rynku PL/EU | DONE | 2026-05-19 |
 | Plan biznesowo-produktowy | **ZATWIERDZONY** | 2026-05-19 |
-| Naming research + decyzja | 🔄 PENDING — Velure vs Atelier 11 dual-track | 2026-05-19 |
+| Naming research + decyzja | ✅ DONE — Velure | 2026-05-19 |
 | Domain check (atelier11.pl/.cars/.eu) | TODO | — |
 | EUIPO/UPRP TM filing | TODO | — |
 | 6 decyzji klienta (po nazwie) | CZEKA | — |
@@ -71,4 +72,4 @@ Pelne uzasadnienie w `docs/plan.md` sekcja 4.
 
 ---
 
-Plan szczegolowy zatwierdzony 2026-05-18. Nazwa: **Velure vs Atelier 11** (dual-track, 2026-05-19). Domeny + TM filing po wyborze.
+Plan szczegolowy zatwierdzony 2026-05-18. Nazwa: **Velure** (final, 2026-05-19). Domeny (velure.pl + velure.cars) + EUIPO TM filing klasa 12+35 w sprint 1.
