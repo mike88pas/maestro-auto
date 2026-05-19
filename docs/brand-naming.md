@@ -1,6 +1,62 @@
 # Naming + domeny + TM research
 
-**Status:** 2026-05-19. Robocza nazwa repo: `maestro-auto`. Finalna nazwa do decyzji klienta.
+**Status:** 2026-05-19. **FINALNA NAZWA: Atelier 11** (decyzja klienta).
+
+---
+
+## ✅ FINAL: Atelier 11 — wynik deep check (2026-05-19)
+
+### Branza automotive — 100% CZYSTE
+Zero kolizji nazwa w sektorze aut. Najblizsze ale **nie konfliktujace**:
+- "the Atelier" — color/restoration shop dla Porsche/BMW/VW w Milford CT (adres na 11 Warfield St, nazwa nie zawiera "11")
+- Bentley Bentayga **Atelier Edition** — model trim Bentley (nie nazwa firmy)
+- Bugatti Atelier — building w Molsheim (zakład, nie marka)
+- Atelier Motor Group, Atelier Petworth, Auto Atelier, Atelier Automobile — inne nazwy z "Atelier" **bez "11"**
+
+### Cross-industry coexistence (nie konflikt dla klasy 12+35)
+| Firma | Branza | Klasa TM | Lokalizacja | Ryzyko |
+|-------|--------|----------|-------------|--------|
+| Atelier 11 Architecture | Architektura (od 1993) | 42 | Lynchburg VA, USA | Niskie — inna klasa |
+| Atelier 11 (HaZimation rebrand 2025) | Transmedia/film/TV/games | 41 | UK (GOV.UK 13716978) | Niskie — inna klasa |
+| Atelier 11 Architectural Firm | Architektura | 42 | Jeju, South Korea | Bardzo niskie — geo + klasa |
+| Atelier 11 Ltd | Semiconductors? (confusion) | TBD | Easton MD, USA | Niskie — 15 LinkedIn followers, niewielka |
+
+**Konkluzja:** nazwa coexistuje w wielu branzach jak "Apple" (komputery + firma muzyczna). Klasa 12 (pojazdy) + klasa 35 (sales) jest **pole wolne** dla nas w EU.
+
+### Domena
+| TLD | Status | Akcja |
+|-----|--------|-------|
+| `atelier11.com` | **Zajete** (US architecture firm od 1993) | NIE walczymy — koszt $10-50k+, niekonieczne |
+| `atelier11.pl` | TBD (Namecheap check) | **PRIORYTET** — SEO PL |
+| `atelier11.cars` | TBD | **PRIORYTET** — international |
+| `atelier11.eu` | TBD | **PRIORYTET** — expansion-ready |
+| `atelier11.club` | TBD | Backup — membership feel |
+| `theatelier11.com` | TBD | Backup jesli chcemy `.com` |
+
+### TM filing — action plan
+1. **EUIPO eSearch** (https://www.euipo.europa.eu/eSearchPlus) — sprawdz `Atelier 11` w klasie 12 + 35 manualnie
+2. **UPRP** (Urzad Patentowy RP) — sprawdz baze polska, plus rejestracja PL (~2000-5000 PLN, 6-9 mies)
+3. **EU TM** — rejestracja na poziomie UE pokrywa wszystkie 27 panstw (~1050 EUR, 4-6 mies)
+4. **Social handles** — rezerwacja @atelier11 / @atelier11cars na IG, LinkedIn, X, TikTok ASAP (przed publicznym ogloszeniem)
+
+### Storyline brandu
+- *"Atelier"* — krawiectwo na miarę (zbiezne z USP concierge)
+- *"11"* — sygnatura, brand story hook:
+  - **11 punktow weryfikacji** kazdego auta przed dostawa
+  - **11 marek partnerskich** w portfolio (BMW, AUDI, Mercedes, Porsche, Range Rover, Tesla, Lexus, Volvo, Jaguar, Land Rover, Mini)
+  - **11 dni** od decyzji do garazu (slogan: "Auto u Ciebie w 11 dni")
+- Logo concept: minimalistyczne wordmark "Atelier 11" w Playfair Display lub monogram "A·11"
+
+### Slogan candidates
+- *"Atelier 11. Auto skrojone pod ciebie."*
+- *"Atelier 11. 11 punktow, 11 marek, 0 kompromisow."*
+- *"Atelier 11. Twoj prywatny doradca premium."*
+
+---
+
+## ARCHIWUM: poprzednie iteracje naming research
+
+Ponizsza sekcja zachowana dla kontekstu decyzji i lessons learned.
 
 ## Top 3 propozycje z planu — STATUS RESEARCH
 

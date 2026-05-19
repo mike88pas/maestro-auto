@@ -1,12 +1,35 @@
-# CLAUDE.md — Maestro Auto (robocza nazwa)
+# CLAUDE.md — Atelier 11
 
 Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem na start sesji.
 
+> **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Brand to **Atelier 11**. Rename repo TBD.
+
 ## TLDR
 
-Budujemy **brand premium concierge dla aut 150-500k PLN** w Polsce. Model: broker (NIE dealer wlasny, NIE marketplace). Klient ma relacje z salonami + kapital + baze HNWI. MVP 6 mies, budzet 300-800k PLN.
+Budujemy **Atelier 11** — brand super-luxury concierge dla aut **300k-3 mln PLN** w Polsce. Model: broker (NIE dealer wlasny, NIE marketplace). Klient ma relacje z salonami + kapital + baze HNWI/UHNWI. MVP 6 mies, budzet 300-800k PLN.
+
+**Segment marki:** Ferrari, Lamborghini, McLaren, Bentley, Aston Martin, Rolls-Royce, Maserati, Porsche flagship (911 Turbo+/Taycan Turbo), AMG flagship (S/G-Class), Range Rover SV, BMW M flagship, Audi RS flagship, Tesla Plaid.
+
+**Pivot 2026-05-19:** klient zmienil segment z premium 150-500k na super-luxury 300k-3M. Implikacje: mniejsza baza ale gestsza, wyzsza marza per transakcja (3-5% vs 1.5-3%), naturalny fit do brand "Atelier 11" (krawiectwo na miarę).
 
 Plan szczegolowy: `docs/plan.md`. Naming research + status: `docs/brand-naming.md`. Decyzje czekajace na klienta: `docs/decisions-pending.md`.
+
+## Brand: Atelier 11
+
+**Decyzja klienta:** 2026-05-19. Finalna nazwa po deep TM/domain check.
+
+**Storyline:** *"Atelier" — krawiectwo na miarę. "11" — sygnatura, nasze 11 punktow weryfikacji kazdego auta + 11 marek partnerskich.*
+
+**Cross-industry coexistence** (nie konflikt):
+- Atelier 11 Architecture (USA, klasa 42)
+- Atelier 11 (UK transmedia studio, klasa 41)
+- W klasie 12 (pojazdy) i 35 (sales) — pole wolne
+
+**Domena:**
+- `atelier11.com` zajete (US architecture firm) — NIE bedziemy walczyc
+- **Priorytet:** `atelier11.pl` (SEO PL) + `atelier11.cars` (international) lub `atelier11.eu`
+- Do potwierdzenia: Namecheap/GoDaddy check po decyzji klienta
+- Social handles: `@atelier11` / `@atelier11.cars` na IG/LinkedIn/X — do rezerwacji ASAP
 
 ## Komunikacja
 

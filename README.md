@@ -1,8 +1,14 @@
-# Maestro Auto (robocza nazwa)
+# Atelier 11
 
-> **Twoj prywatny doradca premium. AI + eksperci. Najlepsze ceny z salonow w Polsce i Europie.**
+> **Auto skrojone pod ciebie. AI + eksperci. Najlepsze ceny z salonow w Polsce i Europie.**
 
-Brand concierge dla segmentu premium 150-500k PLN. AI-first. MVP w realizacji (2026 H2).
+Brand concierge dla segmentu super-luxury **300k-3 mln PLN**. AI-first. MVP w realizacji (2026 H2).
+
+**Marki:** Ferrari, Lamborghini, McLaren, Bentley, Aston Martin, Rolls-Royce, Maserati, Porsche flagship, AMG flagship, Range Rover SV, BMW M flagship.
+
+*"Atelier" — krawiectwo na miare. "11" — nasze 11 punktow weryfikacji kazdego auta + 11 marek partnerskich.*
+
+> Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed decyzja nazwy). Rename TBD.
 
 ## Status
 
@@ -11,8 +17,10 @@ Brand concierge dla segmentu premium 150-500k PLN. AI-first. MVP w realizacji (2
 | Brief klienta | DONE | 2026-05-18 |
 | Research rynku PL/EU | DONE | 2026-05-19 |
 | Plan biznesowo-produktowy | **ZATWIERDZONY** | 2026-05-19 |
-| Naming + domeny | W TOKU | — |
-| 7 decyzji klienta | CZEKA | — |
+| Naming research + decyzja | **DONE — Atelier 11** | 2026-05-19 |
+| Domain check (atelier11.pl/.cars/.eu) | TODO | — |
+| EUIPO/UPRP TM filing | TODO | — |
+| 6 decyzji klienta (po nazwie) | CZEKA | — |
 | Kickoff | — | — |
 | Sprint 1 (branding + repo bootstrap) | — | — |
 
@@ -25,13 +33,14 @@ Brand concierge dla segmentu premium 150-500k PLN. AI-first. MVP w realizacji (2
 - **[Research: AI strategy](docs/research/ai-strategy.md)** — 6 modulow AI + benchmarki
 - **[Research: konkurencja](docs/research/competitive-analysis.md)** — HR Owen, JamesEdition, polscy gracze
 
-## Cele m6 (run-rate)
+## Cele m6 (run-rate) — segment 300k-3M
 
-- 30-60 transakcji/mies
-- 1.5-2 mln PLN revenue/rok
-- 500-1000 leadow w CRM
-- 100+ klientow w strefa-klienta
-- 5+ B2B fleet partnerships
+- 8-15 transakcji/mies (avg deal 800k PLN)
+- **3-5 mln PLN revenue/rok** (realistyczna prognoza)
+- 300-500 leadow w CRM (mniejsza ale gestsza baza UHNWI)
+- 50+ klientow w strefa-klienta
+- 20+ aktywnych Private Members
+- 3+ partnerstwa private banking
 
 ## Stack
 
@@ -52,4 +61,4 @@ Pelne uzasadnienie w `docs/plan.md` sekcja 4.
 
 ---
 
-Plan szczegolowy zatwierdzony 2026-05-18. Working name: **Maestro Auto** (finalna nazwa do decyzji klienta po sprawdzeniu domen+TM).
+Plan szczegolowy zatwierdzony 2026-05-18. Finalna nazwa: **Atelier 11** (2026-05-19). Domeny + TM filing w toku.

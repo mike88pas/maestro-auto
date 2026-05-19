@@ -1,24 +1,30 @@
 # Decyzje czekajace na klienta
 
-7 punktow do kickoff call (60 min). Bez tych decyzji nie startujemy sprintu 1.
+6 punktow do kickoff call (60 min). Bez tych decyzji nie startujemy sprintu 1.
 
-## 1. Nazwa brandu
+## 1. Nazwa brandu — ✅ DONE
 
-**Status:** ROBOCZA `maestro-auto`. Naming research wykazal problemy z 3 top opcjami z planu — patrz `docs/brand-naming.md`.
+**Decyzja klienta 2026-05-19:** **Atelier 11**
 
-**Akcja klienta:** wybierz finalna nazwe z propozycji (lub zaproponuj wlasna).
+Deep TM/domain check: branza automotive 100% czysta. Cross-industry coexistence z Atelier 11 Architecture (USA), Atelier 11 transmedia (UK) — nie konfliktowe. Domena `.com` zajeta przez US architecture firm — idziemy z alternatywami.
 
-**Co to blokuje:** logo, branding, domena, znak towarowy, social handles, kazdy artefakt brandowy.
+Szczegoly: `docs/brand-naming.md`.
 
 ---
 
 ## 2. Domena
 
-**Status:** czekamy na nazwe. Do sprawdzenia po decyzji: `.com` (priorytet), `.pl` (dla SEO PL), `.eu` (expansion-ready).
+**Status:** rekomendowane TLDs do zakupu:
+- **`atelier11.pl`** — priorytet (SEO polski rynek)
+- **`atelier11.cars`** — international (premium domain extension)
+- **`atelier11.eu`** — expansion-ready (EU)
+- `atelier11.club` — backup (membership feel)
 
-**Akcja klienta:** budzet na domene (typowo 50-2000 PLN/rok dla swiezej, 5-50k PLN jesli kupujemy zajeta premium).
+**NIE walczymy o `.com`** — zajete przez US architecture firm od 1993, kupno bedzie kosztowne ($10-50k+) i niekonieczne.
 
-**Co to blokuje:** website, email firmowy, SSL, marketing assets.
+**Akcja klienta:** decyzja ktore TLDs kupujemy + budzet (typowo 50-500 PLN/rok per TLD freshly registered).
+
+**Co to blokuje:** website, email firmowy, SSL, marketing assets, social handles.
 
 ---
 
