@@ -6,6 +6,11 @@ import { useRef } from "react";
 import { hero, contact } from "@/lib/copy";
 import { Sigil } from "./ui/sigil";
 
+// TODO: swap to OpenArt-generated hero photos once user uploads to
+// public/placeholders/velure/ — see docs/brand/hero-prompts-v2.md
+const HERO_PRIMARY = "/placeholders/dev/sports-car-night.jpg";
+const HERO_ALT = "/placeholders/dev/sports-car-night.jpg";
+
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
@@ -17,11 +22,12 @@ export function Hero() {
       ref={ref}
       className="relative h-screen min-h-[720px] w-full overflow-hidden"
     >
-      {/* Background photo with ken-burns + scroll parallax */}
+      {/* Background — dual-layer crossfade with ken-burns */}
       <motion.div
         style={{ y, opacity }}
         className="absolute inset-0 -z-10"
       >
+        {/* Layer 1 — primary, always present, ken-burns 18s */}
         <motion.div
           animate={{ scale: [1, 1.08, 1] }}
           transition={{
@@ -32,40 +38,80 @@ export function Hero() {
           className="absolute inset-0"
         >
           <Image
-            src="/placeholders/dev/sports-car-night.jpg"
+            src={HERO_PRIMARY}
             alt=""
             fill
             priority
-            quality={90}
+            quality={92}
             sizes="100vw"
             className="object-cover"
           />
         </motion.div>
-        {/* Vignette: darkens edges + bottom for headline contrast */}
+
+        {/* Layer 2 — alt, fades in 8-10s, holds 10-18s, fades out 18-20s, cycle 20s */}
+        <motion.div
+          animate={{ opacity: [0, 0, 1, 1, 0, 0], scale: [1.05, 1, 1.05] }}
+          transition={{
+            opacity: {
+              duration: 20,
+              repeat: Infinity,
+              times: [0, 0.4, 0.5, 0.9, 1, 1],
+              ease: "easeInOut",
+            },
+            scale: {
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            },
+          }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={HERO_ALT}
+            alt=""
+            fill
+            quality={92}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </motion.div>
+
+        {/* Vignette — softer than before, lets photo breathe while keeping headline contrast */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse 90% 60% at 50% 40%, transparent 0%, color-mix(in srgb, var(--bg) 50%, transparent) 90%),
-              linear-gradient(180deg, color-mix(in srgb, var(--bg) 45%, transparent) 0%, transparent 25%, transparent 45%, color-mix(in srgb, var(--bg) 95%, transparent) 88%, var(--bg) 100%)
+              radial-gradient(ellipse 95% 65% at 50% 42%, transparent 0%, color-mix(in srgb, var(--bg) 30%, transparent) 95%),
+              linear-gradient(180deg, color-mix(in srgb, var(--bg) 28%, transparent) 0%, transparent 22%, transparent 50%, color-mix(in srgb, var(--bg) 78%, transparent) 88%, var(--bg) 100%)
             `,
           }}
         />
       </motion.div>
 
-      {/* Top bar — sigil + phone */}
-      <div className="absolute top-0 left-0 right-0 z-10 pt-24 md:pt-28">
+      {/* Top bar — sigil + caption left, established marker right */}
+      <div className="absolute top-0 left-0 right-0 z-10 pt-28 md:pt-32">
         <div className="container-x flex items-start justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden md:flex items-center gap-3 text-gold"
+            className="hidden md:flex items-center gap-3"
           >
-            <Sigil className="h-8 w-8" />
-            <span className="caption text-gold tracking-[0.2em]">
+            <Sigil className="h-8 w-8 text-gold" />
+            <span className="caption text-gold/85 tracking-[0.24em]">
               Six capitals · One concierge
+            </span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden md:block"
+          >
+            <span className="caption text-ink/40 tracking-[0.3em]">
+              MMXXVI · Established
             </span>
           </motion.div>
         </div>
@@ -74,9 +120,9 @@ export function Hero() {
       {/* Bottom-left copy stack */}
       <div className="relative h-full flex items-end pb-28 md:pb-36">
         <div className="container-x w-full">
-          <div className="max-w-5xl">
-            {/* Stagger headline lines */}
-            <h1 className="display text-[clamp(56px,11vw,160px)] leading-[0.92]">
+          {/* Headline — narrower max-width so 3 lines hold proportion */}
+          <div className="max-w-4xl">
+            <h1 className="display text-[clamp(48px,8.5vw,128px)] leading-[0.95]">
               {hero.headlineLines.map((line, i) => (
                 <motion.span
                   key={i}
@@ -94,12 +140,15 @@ export function Hero() {
                 </motion.span>
               ))}
             </h1>
+          </div>
 
+          {/* Sub + CTA — narrower, anchored independently for visual rhythm */}
+          <div className="max-w-2xl">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-10 md:mt-12 text-base md:text-xl text-ink/85 max-w-2xl leading-relaxed"
+              className="mt-10 md:mt-12 text-base md:text-xl text-ink/85 leading-relaxed"
             >
               {hero.sub}
             </motion.p>
@@ -108,23 +157,21 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-12 flex flex-wrap items-center gap-6"
+              className="mt-12 flex flex-wrap items-center gap-8"
             >
-              <a href="#kontakt" className="btn-primary group">
+              <a href="#kontakt" className="btn-primary">
                 <span>{hero.ctaPrimary}</span>
-                <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a href="#kolekcja" className="btn-secondary">
                 {hero.ctaSecondary}
               </a>
             </motion.div>
 
-            {/* Bottom hairline + capitals caption */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2, delay: 1.4 }}
-              className="mt-16 md:mt-20 flex items-center gap-6"
+              className="mt-20 md:mt-28 flex items-center gap-6"
             >
               <motion.div
                 initial={{ scaleX: 0 }}
@@ -139,18 +186,18 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — Aesop-minimal: thin line + dot pulse, no text */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-3"
       >
-        <span className="caption text-muted/60 text-[9px]">Scroll</span>
+        <div className="h-12 w-px bg-gradient-to-b from-transparent via-gold/40 to-gold/80" />
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-gold/60 to-transparent"
+          animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.4, 1] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          className="h-1 w-1 rounded-full bg-gold"
         />
       </motion.div>
 

@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 
 export function SixCapitals() {
   const [active, setActive] = useState<City["code"]>("PL");
-  const activeCity = sixCapitals.cities.find((c) => c.code === active)!;
 
   return (
     <section
