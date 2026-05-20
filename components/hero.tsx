@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { hero, contact } from "@/lib/copy";
 import { Sigil } from "./ui/sigil";
 
@@ -10,21 +9,12 @@ const HERO_PRIMARY = "/placeholders/velure/hero-vault.webp";
 const HERO_ALT = "/placeholders/velure/hero-alt.webp";
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 800], [0, -80]);
-  const opacity = useTransform(scrollY, [0, 500], [1, 0.55]);
-
   return (
     <section
-      ref={ref}
       className="relative h-screen h-[100svh] min-h-[520px] w-full overflow-hidden flex flex-col"
     >
-      {/* Background — dual-layer crossfade with ken-burns */}
-      <motion.div
-        style={{ y, opacity }}
-        className="absolute inset-0 z-0"
-      >
+      {/* Background — dual-layer crossfade with ken-burns. Plain div so image is guaranteed visible even if framer-motion hydration fails. */}
+      <div className="absolute inset-0 z-0">
         {/* Layer 1 — primary, always present, ken-burns 18s */}
         <motion.div
           animate={{ scale: [1, 1.08, 1] }}
@@ -85,33 +75,23 @@ export function Hero() {
             `,
           }}
         />
-      </motion.div>
+      </div>
 
       {/* Top bar — sigil + caption left, established marker right. In flow so it cannot overlap with bottom copy on short viewports. */}
       <div className="relative z-10 pt-0 md:pt-24 pointer-events-none">
         <div className="container-x flex items-start justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden md:flex items-center gap-3"
-          >
+          <div className="hidden md:flex items-center gap-3">
             <Sigil className="h-8 w-8 text-gold" />
             <span className="caption text-gold/85 tracking-[0.24em]">
               Six capitals · One concierge
             </span>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden md:block"
-          >
+          <div className="hidden md:block">
             <span className="caption text-ink/40 tracking-[0.3em]">
               MMXXVI · Established
             </span>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -125,64 +105,33 @@ export function Hero() {
               style={{ fontSize: "clamp(34px, min(6.5vw, 8vh), 96px)" }}
             >
               {hero.headlineLines.map((line, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.15 + i * 0.18,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="block"
-                >
+                <span key={i} className="block">
                   {line.replace(".", "")}
                   <span className="text-gold">.</span>
-                </motion.span>
+                </span>
               ))}
             </h1>
           </div>
 
           {/* Sub + CTA — narrower, anchored independently for visual rhythm */}
           <div className="max-w-2xl">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-3 md:mt-6 text-sm md:text-lg text-ink/85 leading-relaxed"
-            >
+            <p className="mt-3 md:mt-6 text-sm md:text-lg text-ink/85 leading-relaxed">
               {hero.sub}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5 md:mt-6 flex flex-wrap items-center gap-6 md:gap-8"
-            >
+            <div className="mt-5 md:mt-6 flex flex-wrap items-center gap-6 md:gap-8">
               <a href="#kontakt" className="btn-primary">
                 <span>{hero.ctaPrimary}</span>
               </a>
               <a href="#kolekcja" className="btn-secondary">
                 {hero.ctaSecondary}
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 1.4 }}
-              className="mt-6 md:mt-10 hidden md:flex items-center gap-6"
-            >
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1.4, delay: 1.4, ease: [0.65, 0, 0.35, 1] }}
-                style={{ originX: 0 }}
-                className="h-px bg-gold/70 w-24 md:w-40"
-              />
+            <div className="mt-6 md:mt-10 hidden md:flex items-center gap-6">
+              <div className="h-px bg-gold/70 w-24 md:w-40" />
               <span className="caption text-muted">{hero.capitals}</span>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
