@@ -4,15 +4,15 @@ Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem n
 
 > **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Rename repo na `velure` w sprint 1.
 
-## 🟢 STATE pre-session (2026-05-19 noc, sesja 4)
+## 🟢 STATE pre-session (2026-05-20, sesja 5)
 
 - **LIVE:** https://velure-bice.vercel.app (Vercel, auto-deploy z `main`)
 - **Firebase project:** `velure-mvp` istnieje (dla future auth/db, NIE hosting — Vercel hostuje)
 - **Stack:** Next.js 16.2.6 (Turbopack) + React 19.2.6 stable + Framer Motion. Build clean.
 - **Dev server:** `npm install && npm run dev` (`.npmrc` automatycznie ustawia legacy-peer-deps). Build: `npm run build`.
-- **Hero status:** layout cinematic OK, ale **foto nadal placeholder** (`sports-car-night.jpg` Unsplash w obu slotach crossfade)
-- **KNOWN ISSUE P0:** user musi wygenerowac 2 foto z `docs/brand/hero-prompts-v2.md` (OpenArt), wrzucic do `public/placeholders/velure/` jako `hero-primary.webp` + `hero-alt.webp`, dac znac → swap paths w `components/hero.tsx` (HERO_PRIMARY/HERO_ALT consts) = auto-redeploy
+- **Hero status:** ✅ FINAL — OpenArt foto live. Primary = "The Reveal" (velvet drape Aston), alt = "Maker's Bench" (gold badge macro). Pliki: `public/placeholders/velure/hero-primary.webp` + `hero-alt.webp`. Trzy dodatkowe foto zachowane w tym samym katalogu: `hero-vault.webp` (Pagani), `hero-night-driver.webp` (Bentley + club), `hero-architectural.webp` (showroom perspective) — do reuse w innych sekcjach per `docs/brand/hero-prompts-v2.md:202-207`.
 - **KNOWN ISSUE P1:** `/api/health` ma string `"atelier-11 | velure (dual-track)"` — triv fix do single brand
+- **KNOWN ISSUE P1:** kolekcja cards (`lib/copy.ts:101-162`) nadal używają placeholder Unsplash CC0 z `placeholders/dev/` — do wymiany na HNWI-grade gdy będą foto
 - Pelny snapshot: `docs/SESSION-LOG.md`
 
 ## TLDR

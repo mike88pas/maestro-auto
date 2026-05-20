@@ -6,10 +6,8 @@ import { useRef } from "react";
 import { hero, contact } from "@/lib/copy";
 import { Sigil } from "./ui/sigil";
 
-// TODO: swap to OpenArt-generated hero photos once user uploads to
-// public/placeholders/velure/ — see docs/brand/hero-prompts-v2.md
-const HERO_PRIMARY = "/placeholders/dev/sports-car-night.jpg";
-const HERO_ALT = "/placeholders/dev/sports-car-night.jpg";
+const HERO_PRIMARY = "/placeholders/velure/hero-primary.webp";
+const HERO_ALT = "/placeholders/velure/hero-alt.webp";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
