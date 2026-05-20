@@ -6,7 +6,7 @@ import { useRef } from "react";
 import { hero, contact } from "@/lib/copy";
 import { Sigil } from "./ui/sigil";
 
-const HERO_PRIMARY = "/placeholders/velure/hero-primary.webp";
+const HERO_PRIMARY = "/placeholders/velure/hero-vault.webp";
 const HERO_ALT = "/placeholders/velure/hero-alt.webp";
 
 export function Hero() {
@@ -80,8 +80,8 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse 95% 65% at 50% 42%, transparent 0%, color-mix(in srgb, var(--bg) 30%, transparent) 95%),
-              linear-gradient(180deg, color-mix(in srgb, var(--bg) 28%, transparent) 0%, transparent 22%, transparent 50%, color-mix(in srgb, var(--bg) 78%, transparent) 88%, var(--bg) 100%)
+              radial-gradient(ellipse 110% 75% at 50% 45%, transparent 0%, color-mix(in srgb, var(--bg) 18%, transparent) 95%),
+              linear-gradient(180deg, color-mix(in srgb, var(--bg) 18%, transparent) 0%, transparent 18%, transparent 55%, color-mix(in srgb, var(--bg) 55%, transparent) 90%, var(--bg) 100%)
             `,
           }}
         />
