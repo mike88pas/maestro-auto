@@ -116,11 +116,11 @@ export function Hero() {
       </div>
 
       {/* Bottom-left copy stack */}
-      <div className="relative z-10 h-full flex items-end pb-28 md:pb-36">
+      <div className="relative z-10 h-full flex items-end pb-20 md:pb-24">
         <div className="container-x w-full">
           {/* Headline — narrower max-width so 3 lines hold proportion */}
           <div className="max-w-4xl">
-            <h1 className="display text-[clamp(48px,8.5vw,128px)] leading-[0.95]">
+            <h1 className="display text-[clamp(40px,6.5vw,96px)] leading-[0.95]">
               {hero.headlineLines.map((line, i) => (
                 <motion.span
                   key={i}
@@ -146,7 +146,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-10 md:mt-12 text-base md:text-xl text-ink/85 leading-relaxed"
+              className="mt-6 md:mt-8 text-base md:text-lg text-ink/85 leading-relaxed"
             >
               {hero.sub}
             </motion.p>
@@ -155,7 +155,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-12 flex flex-wrap items-center gap-8"
+              className="mt-8 flex flex-wrap items-center gap-8"
             >
               <a href="#kontakt" className="btn-primary">
                 <span>{hero.ctaPrimary}</span>
@@ -169,7 +169,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2, delay: 1.4 }}
-              className="mt-20 md:mt-28 flex items-center gap-6"
+              className="mt-12 md:mt-16 flex items-center gap-6"
             >
               <motion.div
                 initial={{ scaleX: 0 }}
