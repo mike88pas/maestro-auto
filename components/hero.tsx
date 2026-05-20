@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[520px] w-full overflow-hidden flex flex-col"
+      className="relative h-screen h-[100svh] min-h-[520px] w-full overflow-hidden flex flex-col"
     >
       {/* Background — dual-layer crossfade with ken-burns */}
       <motion.div
