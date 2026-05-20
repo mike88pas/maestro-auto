@@ -127,10 +127,10 @@ export function Hero() {
               {hero.headlineLines.map((line, i) => (
                 <motion.span
                   key={i}
-                  initial={{ opacity: 0, y: 40, clipPath: "inset(0 0 100% 0)" }}
-                  animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 1.1,
+                    duration: 0.9,
                     delay: 0.15 + i * 0.18,
                     ease: [0.16, 1, 0.3, 1],
                   }}
