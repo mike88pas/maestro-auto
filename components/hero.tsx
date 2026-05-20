@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-screen min-h-[720px] w-full overflow-hidden"
+      className="relative h-[100svh] min-h-[600px] w-full overflow-hidden"
     >
       {/* Background — dual-layer crossfade with ken-burns */}
       <motion.div
@@ -88,7 +88,7 @@ export function Hero() {
       </motion.div>
 
       {/* Top bar — sigil + caption left, established marker right */}
-      <div className="absolute top-0 left-0 right-0 z-10 pt-28 md:pt-32">
+      <div className="absolute top-0 left-0 right-0 z-10 pt-28 md:pt-32 pointer-events-none">
         <div className="container-x flex items-start justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -116,7 +116,7 @@ export function Hero() {
       </div>
 
       {/* Bottom-left copy stack */}
-      <div className="relative z-10 h-full flex items-end pb-20 md:pb-24">
+      <div className="relative z-10 h-full flex items-end pb-24">
         <div className="container-x w-full">
           {/* Headline — narrower max-width so 3 lines hold proportion */}
           <div className="max-w-4xl">
