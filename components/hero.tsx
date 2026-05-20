@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[600px] w-full overflow-hidden"
+      className="relative h-[100svh] min-h-[520px] w-full overflow-hidden flex flex-col"
     >
       {/* Background — dual-layer crossfade with ken-burns */}
       <motion.div
@@ -87,8 +87,8 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* Top bar — sigil + caption left, established marker right */}
-      <div className="absolute top-0 left-0 right-0 z-10 pt-28 md:pt-32 pointer-events-none">
+      {/* Top bar — sigil + caption left, established marker right. In flow so it cannot overlap with bottom copy on short viewports. */}
+      <div className="relative z-10 pt-0 md:pt-24 pointer-events-none">
         <div className="container-x flex items-start justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -115,12 +115,15 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom-left copy stack */}
-      <div className="relative z-10 h-full flex items-end pb-24">
+      {/* Bottom-left copy stack — flex-1 fills remaining space below top bar */}
+      <div className="relative z-10 flex-1 flex items-end pb-20 md:pb-12">
         <div className="container-x w-full">
           {/* Headline — narrower max-width so 3 lines hold proportion */}
           <div className="max-w-4xl">
-            <h1 className="display text-[clamp(40px,6.5vw,96px)] leading-[0.95]">
+            <h1
+              className="display leading-[0.95]"
+              style={{ fontSize: "clamp(34px, min(6.5vw, 8vh), 96px)" }}
+            >
               {hero.headlineLines.map((line, i) => (
                 <motion.span
                   key={i}
@@ -146,7 +149,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 md:mt-8 text-base md:text-lg text-ink/85 leading-relaxed"
+              className="mt-3 md:mt-6 text-sm md:text-lg text-ink/85 leading-relaxed"
             >
               {hero.sub}
             </motion.p>
@@ -155,7 +158,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 flex flex-wrap items-center gap-8"
+              className="mt-5 md:mt-6 flex flex-wrap items-center gap-6 md:gap-8"
             >
               <a href="#kontakt" className="btn-primary">
                 <span>{hero.ctaPrimary}</span>
@@ -169,7 +172,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2, delay: 1.4 }}
-              className="mt-12 md:mt-16 flex items-center gap-6"
+              className="mt-6 md:mt-10 hidden md:flex items-center gap-6"
             >
               <motion.div
                 initial={{ scaleX: 0 }}
