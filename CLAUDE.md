@@ -4,16 +4,28 @@ Ten plik jest kontekstem dla Claude Code w tym repo. Czytaj go za kazdym razem n
 
 > **UWAGA:** Repo na GitHub nadal nazywa sie `maestro-auto` (utworzone przed wyborem finalnej nazwy). Rename repo na `velure` w sprint 1.
 
-## 🟢 STATE pre-session (2026-05-20, sesja 5)
+## 🟢 STATE post-session (2026-05-20 noc, sesja 5 zamknięta)
 
-- **LIVE:** https://velure-bice.vercel.app (Vercel, auto-deploy z `main`)
+- **LIVE FINAL:** https://velure-bice.vercel.app — hero w pełni działa desktop + mobile + iPhone Safari/Chrome iOS (zweryfikowane przez user'a)
 - **Firebase project:** `velure-mvp` istnieje (dla future auth/db, NIE hosting — Vercel hostuje)
-- **Stack:** Next.js 16.2.6 (Turbopack) + React 19.2.6 stable + Framer Motion. Build clean.
+- **Stack:** Next.js 16.2.6 (Turbopack) + React 19.2.6 stable + Framer Motion 12.39 (tylko na bg image layers, NIE na text — patrz lesson learned). Build clean.
 - **Dev server:** `npm install && npm run dev` (`.npmrc` automatycznie ustawia legacy-peer-deps). Build: `npm run build`.
-- **Hero status:** ✅ FINAL — OpenArt foto live. Primary = "Maranello Vault" (`hero-vault.webp`, Pagani Huayra centered in dark walnut vault), alt = "Maker's Bench" (`hero-alt.webp`, gold badge macro). The Reveal (`hero-primary.webp`) i pozostałe (`hero-night-driver.webp`, `hero-architectural.webp`) zachowane w `public/placeholders/velure/` do reuse w innych sekcjach. **Lesson learned:** OpenArt generations bez wymuszania 21:9 + outpaint mają subject lewy + negative space prawy, co koliduje z left-anchored headline. Tylko centered-subject foto (Vault, Bench) survives object-cover na wide viewport. Vignette zmiękczone do ~18%/55% (było 30%/78%) żeby photo czytało się przez overlay.
-- **KNOWN ISSUE P1:** `/api/health` ma string `"atelier-11 | velure (dual-track)"` — triv fix do single brand
-- **KNOWN ISSUE P1:** kolekcja cards (`lib/copy.ts:101-162`) nadal używają placeholder Unsplash CC0 z `placeholders/dev/` — do wymiany na HNWI-grade gdy będą foto
-- Pelny snapshot: `docs/SESSION-LOG.md`
+- **Hero status:** ✅ FINAL po 7 fixach w jednej sesji. Primary = "Maranello Vault" (`hero-vault.webp`), alt = "Maker's Bench" (`hero-alt.webp`). Crossfade 20s cycle z ken-burns scale. Pozostałe 3 OpenArt foto (`hero-primary.webp` Reveal, `hero-night-driver.webp` Bentley, `hero-architectural.webp` showroom) zachowane do reuse w innych sekcjach per `docs/brand/hero-prompts-v2.md:202-207`.
+- **CRITICAL ARCHITECTURE NOTES (nie zmieniaj bez powodu):**
+  - Hero `section` to `flex flex-col` z `h-screen h-[100svh] min-h-[520px]`. Svh = iOS-safe (URL bar collapse), vh = fallback.
+  - Top bar w flow (`relative`, NIE absolute) — żeby fizycznie nie mogło overlapować z bottom copy
+  - Bottom copy `flex-1 flex items-end pb-20 md:pb-12` — pb-20 mobile bo sticky-phone 56px musi clear
+  - Headline rozmiar przez **inline style** `font-size: clamp(34px, min(6.5vw, 8vh), 96px)` — vh-aware żeby kurczył się na krótkich viewportach
+  - Headline + sub + CTAs to PLAIN `<span>`/`<p>`/`<div>` — **NIE** framer-motion. Reason: motion.* z initial={opacity:0} renderuje inline `style="opacity:0"` w SSR; jeśli JS/hydration fail to text forever invisible (zdarzało się na user'a iPhone 13)
+- **KNOWN ISSUE P1:** `/api/health` ma string `"atelier-11 | velure (dual-track)"` — triv fix do "velure" (single line w `app/api/health/route.ts`)
+- **KNOWN ISSUE P1:** kolekcja cards (`lib/copy.ts:101-162`) nadal używają placeholder Unsplash CC0 z `placeholders/dev/` — do wymiany na HNWI-grade (6 cars × 2 angles = 12 foto z OpenArt)
+- **NEXT SESSION (sprint 1 candidates):**
+  - Rename repo na GitHub `maestro-auto` → `velure`
+  - Zakup domeny `velure.pl` + `velure.cars`, custom domain w Vercel
+  - TM filing EUIPO/UPRP
+  - Social handles rezerwacja `@velure` (IG, LinkedIn, X, TikTok)
+  - Sanity CMS setup
+- Pełny snapshot: `docs/SESSION-LOG.md` sekcja 2026-05-20 sesja 5
 
 ## TLDR
 

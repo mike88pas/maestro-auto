@@ -4,6 +4,99 @@ Snapshot stanu projektu między sesjami. Update na koniec każdej sesji roboczej
 
 ---
 
+## 2026-05-20 (sesja 5) — Hero photos live + 4 critical bugs uncovered & fixed
+
+**Trwanie:** ~3h iterations.
+**Commits:** 9 sekwencyjnych fixów: `2466e47` → `c3eaf95` → `1ab2e15` → `055824b` → `9484846` → `c79e493` → `ab91163` → `6ffbbab` → `182596c` → `ed196c6` (final)
+
+### Co zostało zrobione
+
+**OpenArt foto wgrane i deployed:**
+- User wygenerował 5 hero foto wg `docs/brand/hero-prompts-v2.md` (Maranello Vault, The Reveal, Maker's Bench, Night Driver, Architectural)
+- 7 plików wgranych (2 duplikaty `(1)` skasowane), 5 unikalnych zachowanych w `public/placeholders/velure/`:
+  - `hero-vault.webp` — Pagani Huayra w dark walnut vault (PRIMARY hero)
+  - `hero-alt.webp` — gold badge macro + glove (ALT crossfade)
+  - `hero-primary.webp` — The Reveal (velvet drape Aston) — kept for future use
+  - `hero-night-driver.webp` — Bentley + private members club
+  - `hero-architectural.webp` — empty showroom perspective
+- Pierwszy wybór primary = "The Reveal" (per brand book recommendation), po deploy okazało się że composition subject-left koliduje z layout headline-left → swap na Vault (centered subject survives object-cover)
+
+**4 KRYTYCZNE BUGI uncovered (każdy by-design "premium failure mode"):**
+
+1. **Stacking context escape** — `-z-10` na bg image wrapper + `<section position:relative>` BEZ explicit z-index = brak stacking context = image wycieka POZA section i ląduje za body's `#0A0809` noir bg. Hero był niewidoczny od samego początku, nikt nie zauważył przez 4 sesje bo myśleli że to placeholder. Fix: `z-0` na bg, `z-10` na copy stacks. Memory: `stacking-context-trap.md`.
+
+2. **Headline overflow** — `clamp(48,8.5vw,128)` × 3 lines × 0.95 leading + bottom-anchored `items-end` na typowym laptop viewport (800px) — stack overflowed UP nad nav. "Moc." clipowane górą. Fix: clamp redukcja do `(40,6.5vw,96)` + tighter spacing.
+
+3. **Top bar absolute + items-end overlap** — top bar był `absolute top-0 pt-32` a copy `items-end h-full`. Na krótkich viewportach (user'a 990×550 z dev tools open) STACK overflowed UPWARD into top bar = "Six Capitals" caption overlapped "Aksamit". Mathematically guaranteed overlap. Fix: section to `flex flex-col`, top bar w flow `relative`, copy `flex-1` — fizycznie niemożliwe żeby overlap.
+
+4. **Framer-motion SSR opacity:0 trap** — `motion.span initial={{opacity:0}}` renderowało inline `style="opacity:0"` w SSR HTML. Na user'a iPhone 13 Chrome iOS framer-motion (v12 + React 19 + Next 16) nie odpalało animacji → tekst forever invisible. Curl HTML confirmation: `<span style="opacity:0;transform:translateY(24px)">Aksamit</span>`. Fix: stripped framer-motion z wszystkich text contentu (headline/sub/CTAs/markers). Memory: `framer-motion-ssr-trap.md`.
+
+**Bonus issues:**
+- 5. `min-h-[720px]` wymuszał hero wyższy niż iPhone SE 667 viewport → copy items-end ląduje below fold → mobile no text. Fix: `min-h-[520px]`.
+- 6. `h-screen` (100vh) na iOS Safari skacze przy URL bar collapse → layout shift. Fix: `h-screen h-[100svh]` (svh override, vh fallback).
+- 7. `pb-12 md:pb-20` było BACKWARDS — mobile 48px LESS niż sticky-phone 56px = CTAs pod sticky-phone. Fix: `pb-20 md:pb-12` (mobile więcej).
+
+### Memory zapisane (3 nowe lessons learned)
+
+- `velure-project-state.md` — updated hero status to "FINAL, OpenArt live"
+- `hero-photo-composition-trap.md` — OpenArt 4:3 vs 21:9 composition trap
+- `stacking-context-trap.md` — `-z-10` escape trap
+- `framer-motion-ssr-trap.md` — SSR opacity:0 invisibility trap
+
+### Końcowa architektura hero (post-7-fixes)
+
+```
+<section relative h-screen h-[100svh] min-h-[520px] flex flex-col overflow-hidden>
+  <div absolute inset-0 z-0>           // bg (plain div, no motion on wrapper)
+    <motion.div animate=ken-burns>     // Layer 1 — primary photo, scale anim
+      <Image src=hero-vault.webp />
+    </motion.div>
+    <motion.div animate=crossfade>     // Layer 2 — alt photo, opacity cycle
+      <Image src=hero-alt.webp />
+    </motion.div>
+    <div vignette absolute inset-0 />
+  </div>
+  <div relative z-10 pt-0 md:pt-24>    // top bar (in flow, hidden on mobile)
+    <div container-x flex justify-between>
+      <div hidden md:flex>Six Capitals</div>
+      <div hidden md:block>MMXXVI</div>
+    </div>
+  </div>
+  <div relative z-10 flex-1 flex items-end pb-20 md:pb-12>  // copy stack
+    <div container-x w-full>
+      <h1 style="font-size: clamp(34px, min(6.5vw, 8vh), 96px)">
+        <span>Aksamit.</span><span>Moc.</span><span>Dyskrecja.</span>
+      </h1>
+      <p mt-3 md:mt-6 text-sm md:text-lg>{sub}</p>
+      <div mt-5 md:mt-6 flex>{CTAs}</div>
+      <div mt-6 md:mt-10 hidden md:flex>{bottom marker}</div>
+    </div>
+  </div>
+  <motion.div scroll-indicator hidden md:flex />
+</section>
+```
+
+### Co istnieje (po sesji 5)
+
+- Hero produkcja FINAL: photo + tekst widoczne na desktop + mobile + iPhone 13 Safari/Chrome iOS
+- 5 OpenArt foto HNWI-grade w `public/placeholders/velure/`
+- Memory base: 6 plików (3 nowe lessons learned dodane)
+- `docs/brand/hero-prompts-v2.md` — full prompt library do reuse na innych sekcjach
+
+### Co NIE istnieje (do następnej sesji)
+
+- 🟡 `lib/copy.ts:101-162` kolekcja cards nadal Unsplash CC0 (`placeholders/dev/*.jpg`) → user musi wygenerować HNWI-grade card photos (6 cars × 2 angles = 12 foto)
+- 🟡 `/api/health` string `"atelier-11 | velure (dual-track)"` → trivial single-line fix do "velure"
+- 🟢 Custom domain `velure.pl` + `velure.cars` zakup (sprint 1)
+- 🟢 TM filing EUIPO/UPRP (sprint 1)
+- 🟢 Social handles `@velure` na IG/LinkedIn/X/TikTok rezerwacja
+
+### 🟢 LIVE URL
+
+https://velure-bice.vercel.app — final after `ed196c6`
+
+---
+
 ## 2026-05-19 (sesja 4) — Hero WOW redesign + Vercel live deploy
 
 **Trwanie:** ~1.5h.
