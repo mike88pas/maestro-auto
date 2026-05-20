@@ -23,7 +23,7 @@ export function Hero() {
       {/* Background — dual-layer crossfade with ken-burns */}
       <motion.div
         style={{ y, opacity }}
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 z-0"
       >
         {/* Layer 1 — primary, always present, ken-burns 18s */}
         <motion.div
@@ -116,7 +116,7 @@ export function Hero() {
       </div>
 
       {/* Bottom-left copy stack */}
-      <div className="relative h-full flex items-end pb-28 md:pb-36">
+      <div className="relative z-10 h-full flex items-end pb-28 md:pb-36">
         <div className="container-x w-full">
           {/* Headline — narrower max-width so 3 lines hold proportion */}
           <div className="max-w-4xl">
