@@ -1,24 +1,14 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { formatMileage, formatPrice } from "@/lib/utils";
 import { flagEmoji, microcopy, type InventoryCard as InventoryCardT } from "@/lib/copy";
 import { SigilBadge } from "./ui/sigil";
 
-export function InventoryCard({ card, index = 0 }: { card: InventoryCardT; index?: number }) {
+// SSR-safe: no framer-motion on card content. Hover lift handled via CSS
+// (`hover:-translate-y-2`). See [[framer-motion-ssr-trap]].
+export function InventoryCard({ card, index: _index = 0 }: { card: InventoryCardT; index?: number }) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{
-        duration: 0.9,
-        delay: index * 0.12,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      whileHover={{ y: -8 }}
-      className="group relative"
+    <article
+      className="group relative transition-transform duration-500 ease-out hover:-translate-y-2"
     >
       <a href={`/kolekcja/${card.slug}`} className="block">
         {/* Image stack with hover crossfade */}
@@ -105,6 +95,6 @@ export function InventoryCard({ card, index = 0 }: { card: InventoryCardT; index
           </div>
         </div>
       </a>
-    </motion.article>
+    </article>
   );
 }

@@ -50,19 +50,11 @@ export function SixCapitals() {
 
           {/* City list */}
           <div className="lg:col-span-5 space-y-1">
-            {sixCapitals.cities.map((city, i) => {
+            {sixCapitals.cities.map((city) => {
               const isActive = city.code === active;
               return (
-                <motion.button
+                <button
                   key={city.code}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{
-                    duration: 0.6,
-                    delay: 0.3 + i * 0.08,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
                   onMouseEnter={() => setActive(city.code)}
                   onClick={() => setActive(city.code)}
                   className={cn(
@@ -108,7 +100,7 @@ export function SixCapitals() {
                   >
                     {city.note}
                   </motion.p>
-                </motion.button>
+                </button>
               );
             })}
           </div>

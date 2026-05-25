@@ -1,66 +1,43 @@
-"use client";
+import type { ReactNode, ElementType } from "react";
 
-import { motion, type Variants } from "framer-motion";
-import type { ReactNode } from "react";
+// SSR-safe replacement for the old framer-motion Reveal family.
+// Reason: motion.* with initial={{opacity:0}} rendered inline style="opacity:0"
+// in SSR HTML. On iPhone 13 / slow hydration the animate transition never
+// fired and content stayed invisible. Premium "stillness" > entrance reveal.
+// Props (delay/duration/staggerChildren) kept for API compatibility but ignored.
 
-const variants: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0 },
-};
+type RevealAs = "div" | "section" | "article" | "span" | "h1" | "h2" | "h3" | "p";
+type StaggerAs = "div" | "ul" | "ol" | "section";
+type ItemAs = "div" | "li" | "span" | "p" | "h2" | "h3";
 
 export function Reveal({
   children,
-  delay = 0,
-  duration = 0.9,
   as = "div",
   className,
 }: {
   children: ReactNode;
   delay?: number;
   duration?: number;
-  as?: "div" | "section" | "article" | "span" | "h1" | "h2" | "h3" | "p";
+  as?: RevealAs;
   className?: string;
 }) {
-  const MotionTag = motion[as] as typeof motion.div;
-  return (
-    <MotionTag
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={variants}
-      transition={{ delay, duration, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
-    >
-      {children}
-    </MotionTag>
-  );
+  const Tag = as as ElementType;
+  return <Tag className={className}>{children}</Tag>;
 }
 
 export function RevealStagger({
   children,
-  delayChildren = 0.1,
-  staggerChildren = 0.12,
   className,
+  as = "div",
 }: {
   children: ReactNode;
   delayChildren?: number;
   staggerChildren?: number;
   className?: string;
+  as?: StaggerAs;
 }) {
-  return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      variants={{
-        hidden: {},
-        visible: { transition: { delayChildren, staggerChildren } },
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  const Tag = as as ElementType;
+  return <Tag className={className}>{children}</Tag>;
 }
 
 export function RevealItem({
@@ -70,16 +47,8 @@ export function RevealItem({
 }: {
   children: ReactNode;
   className?: string;
-  as?: "div" | "li" | "span" | "p" | "h2" | "h3";
+  as?: ItemAs;
 }) {
-  const MotionTag = motion[as] as typeof motion.div;
-  return (
-    <MotionTag
-      variants={variants}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
-    >
-      {children}
-    </MotionTag>
-  );
+  const Tag = as as ElementType;
+  return <Tag className={className}>{children}</Tag>;
 }
