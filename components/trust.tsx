@@ -7,7 +7,7 @@ export function Trust() {
     <section className="py-28 md:py-36 border-t border-gold/15">
       <div className="container-x">
         <Reveal>
-          <div className="caption mb-3 text-gold">— 09 · Zaufanie</div>
+          <div className="caption mb-3 text-gold">— 10 · Zaufanie</div>
           <h2 className="display text-[clamp(40px,6vw,68px)] max-w-3xl leading-tight">
             {trust.headline}
           </h2>

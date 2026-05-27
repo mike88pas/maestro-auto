@@ -7,9 +7,9 @@ export function Services() {
     <section className="py-28 md:py-36 border-t border-gold/15">
       <div className="container-x">
         <Reveal>
-          <div className="caption mb-3 text-gold">— 08 · Usługi</div>
+          <div className="caption mb-3 text-gold">— 09 · Usługi</div>
           <h2 className="display text-[clamp(40px,6vw,68px)] max-w-3xl leading-tight">
-            Cztery sposoby, w jakie z nami pracujesz.
+            Dwa sposoby, w jakie pomagamy Ci kupić.
           </h2>
           <GoldLine className="w-16 mt-8" />
         </Reveal>

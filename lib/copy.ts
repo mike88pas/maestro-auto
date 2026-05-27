@@ -181,17 +181,46 @@ export const services: Service[] = [
     subhead: "Sprowadzimy auto z dowolnego rynku. Z dokumentami, na kołach, do garażu.",
     body: "Pełna obsługa importu: weryfikacja na miejscu, transport zamknięty, odprawa celna, rejestracja w PL, ubezpieczenie tranzytowe. Dokumentacja w Twoim języku. Z DE/IT/CH bez VAT (jeśli kwalifikuje się), z UAE/JP pełna obsługa cła + akcyzy.",
   },
-  {
-    title: "Wycena",
-    subhead: "Sprawdzimy, ile warte jest twoje auto. W 48 godzin.",
-    body: "Inżynierowie + AI Vision analizują zdjęcia, VIN, historię i raporty serwisowe. Wycena dwustronna: rynek hurtowy (skup) i rynek detaliczny (sprzedaż). Bez zobowiązań. Jeśli zdecydujesz się sprzedać przez nas — bierzemy 3%.",
-  },
-  {
-    title: "Trade-in",
-    subhead: "Zamień obecne auto na nowe. Bez handlowego targowania się.",
-    body: "Wycena Twojego auta w 48 godzin. Odbiór z Twojej posesji. Rozliczenie częścią ceny nowego auta. Pełna obsługa formalności, transferu leasingu, ewentualnej hipoteki bankowej.",
-  },
 ];
+
+export type SellOption = {
+  title: string;
+  subhead: string;
+  body: string;
+};
+
+export const sellYourCar = {
+  caption: "— 08 · Sprzedaj swoje auto",
+  title: "Twoje auto. Cztery drogi do nowego właściciela.",
+  intro:
+    "Jesteśmy także miejscem, w którym kończą się dobre historie ośmiu cylindrów i zaczynają nowe. Wybierz drogę — resztą zajmiemy się my.",
+  options: [
+    {
+      title: "Skup za gotówkę",
+      subhead: "Płacimy w 72 godzinach. Bez ogłoszeń, bez oglądających.",
+      body: "Wycena dwustronna w 48h (hurt + detal). Akceptacja oferty = przelew w 72h, transport zamknięty, my przejmujemy formalności i ewentualny transfer leasingu. Ścieżka dla klienta, który ceni czas nad maksymalną wartość.",
+    },
+    {
+      title: "Zamiana z dopłatą",
+      subhead: "Wjeżdżasz jednym autem. Wyjeżdżasz drugim.",
+      body: "Twoje obecne auto wchodzi jako część zapłaty za auto, którego szukasz. Wycena Twojego — w 48h. Wycena docelowego — natychmiast. Rozliczenie różnicy: gotówka, leasing albo kredyt private banking. Jeden kontrakt, jedna data.",
+    },
+    {
+      title: "Sprzedaż pre-order",
+      subhead:
+        "Masz allocation u Ferrari, Lambo albo Porsche GT? Znajdziemy nabywcę zanim odbierzesz auto.",
+      body: "Cesja slotu pre-order dla osób, które nie chcą trzymać auta po odbiorze. Działamy w sieci HNWI w sześciu stolicach — Twoja allocation trafia do kolekcjonera, który rok czekania ma już za sobą. Pełna obsługa prawna cesji, transferu zaliczki, finalnej transakcji.",
+    },
+    {
+      title: "Sprzedaż z prowizją",
+      subhead: "Sprzedajemy Twoje auto w naszej sieci. Marża 3% od ustalonej ceny.",
+      body: "Auto zostaje u Ciebie albo w naszym depozycie. Eksponujemy je dyskretnie wśród klientów w PL, IT, DE, CH, AE i JP. Transparentna prowizja 3% od zatwierdzonej ceny — wypłacana po podpisaniu kontraktu. Bez exclusive listingu, bez ujawniania w prasie.",
+    },
+  ] as SellOption[],
+  ctaCaption: "Niezdecydowany? Zacznij od krótkiej rozmowy.",
+  ctaPrimary: "Zapytaj o wycenę",
+  ctaSecondary: "+48 600 000 000",
+};
 
 export type Stat = {
   number: string;

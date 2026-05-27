@@ -20,7 +20,7 @@ export function ContactCTA() {
         <div className="grid md:grid-cols-12 gap-12 lg:gap-20">
           <div className="md:col-span-6">
             <Reveal>
-              <div className="caption mb-3 text-gold">— 10 · Kontakt</div>
+              <div className="caption mb-3 text-gold">— 11 · Kontakt</div>
               <h2 className="display text-[clamp(48px,7vw,96px)] leading-[0.95]">
                 {contact.headline}
               </h2>

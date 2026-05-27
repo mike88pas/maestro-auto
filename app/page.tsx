@@ -6,6 +6,7 @@ import { ValueProps } from "@/components/value-props";
 import { HowItWorks } from "@/components/how-it-works";
 import { SixCapitals } from "@/components/six-capitals";
 import { ConciergeIntro } from "@/components/concierge-intro";
+import { SellYourCar } from "@/components/sell-your-car";
 import { Services } from "@/components/services";
 import { Trust } from "@/components/trust";
 import { ContactCTA } from "@/components/contact-cta";
@@ -24,6 +25,7 @@ export default function HomePage() {
         <HowItWorks />
         <SixCapitals />
         <ConciergeIntro />
+        <SellYourCar />
         <Services />
         <Trust />
         <ContactCTA />
